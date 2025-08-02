@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "namespace:block/::_slab"
+    },
+    "type=double": {
+      "model": "namespace:block/::_planks"
+    },
+    "type=top": {
+      "model": "namespace:block/::_slab_top"
+    }
+  }
+}
