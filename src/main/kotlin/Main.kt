@@ -1,8 +1,14 @@
-package com.mysiupysiu.genmcscript
 
+import com.github.ajalt.clikt.core.subcommands
 import java.io.File
 
-fun main() {
+fun main(args: Array<String>) {
+
+    if (!args.isEmpty()) {
+        GenMc().subcommands(SettingsCli()).main(args)
+        return
+    }
+
     val values = readLine() ?: ""
     val parts = values.trim().split(" ")
 
@@ -32,7 +38,6 @@ fun main() {
         File("generated/recipes/${name}_stairs.json").writeText(readFile("/recipes/stairs.json").replace("**", name).replace("namespace", namespace))
         File("generated/loot_tables/${name}_stairs.json").writeText(readFile("/loot_tables/stairs.json").replace("**", name).replace("namespace", namespace))
     }
-
 }
 
 fun readFile(filename: String): String {
