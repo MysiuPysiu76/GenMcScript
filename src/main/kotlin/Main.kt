@@ -48,6 +48,13 @@ fun main(args: Array<String>) {
             File("generated/models/item/${secondName}carved_${name}pumpkin.json").writeText(readFile("/models/item/carved_pumpkin.json").replace("**", name).replace("namespace", namespace).replace("++", secondName))
             File("generated/loot_tables/${secondName}carved_${name}pumpkin.json").writeText(readFile("/loot_tables/carved_pumpkin.json").replace("**", name).replace("namespace", namespace).replace("++", secondName))
         }
+        "lantern_pumpkin" -> {
+            File("generated/blockstates/${name}_jack_o_lantern.json").writeText(readFile("/blockstates/jack_o_lantern.json").replace("**", name).replace("namespace", namespace))
+            File("generated/models/block/${name}_jack_o_lantern.json").writeText(readFile("/models/block/jack_o_lantern.json").replace("**", name).replace("namespace", namespace))
+            File("generated/models/item/${name}_jack_o_lantern.json").writeText(readFile("/models/item/jack_o_lantern.json").replace("**", name).replace("namespace", namespace))
+            File("generated/loot_tables/${name}_jack_o_lantern.json").writeText(readFile("/loot_tables/jack_o_lantern.json").replace("**", name).replace("namespace", namespace))
+            File("generated/recipes/${name}_jack_o_lantern.json").writeText(readFile("/recipes/jack_o_lantern.json").replace("**", name).replace("namespace", namespace))
+        }
     }
 
 }
