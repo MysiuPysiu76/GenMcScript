@@ -5,7 +5,7 @@ import java.io.File
 fun main(args: Array<String>) {
 
     if (!args.isEmpty()) {
-        GenMc().subcommands(SettingsCli()).main(args)
+        GenMc().subcommands(GenCli(), SettingsCli()).main(args)
         return
     }
 

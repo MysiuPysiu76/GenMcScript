@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "A": {
-      "item": "minecraft:carved_pumpkin"
+      "item": "namespace:**_carved_pumpkin"
     },
     "B": {
       "item": "minecraft:torch"
