@@ -7,7 +7,7 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
     private val type by option("-t", "--type", help = "Enter type")
     private val model by option("-m", "--model", help = "Enter model")
     private val namespaceVal by option("-n", "--namespace", help = "Enter namespace")
-    private val secondName by option("-s", "", help = "Enter second param")
+    private val secondName by option("-s", help = "Enter second param")
 
     override fun run() {
 
