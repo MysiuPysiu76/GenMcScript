@@ -28,4 +28,9 @@ object SettingsManager {
 
         file.writeText(jsonFormat.encodeToString(newJsonObject))
     }
+
+    fun reset() {
+        File("config.json").delete()
+    }
+
 }
