@@ -4,7 +4,7 @@
       "model": "namespace:block/::_slab"
     },
     "type=double": {
-      "model": "namespace:block/::_planks"
+      "model": "namespace:block/::s"
     },
     "type=top": {
       "model": "namespace:block/::_slab_top"

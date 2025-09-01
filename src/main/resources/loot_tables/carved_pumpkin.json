@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "namespace:++carved_**pumpkin"
+          "name": "namespace:++_carved_**pumpkin"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "namespace:blocks/++carved_**pumpkin"
+  "random_sequence": "namespace:blocks/++_carved_**pumpkin"
 }

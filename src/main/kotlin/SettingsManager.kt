@@ -8,6 +8,10 @@ import java.io.File
 
 object SettingsManager {
 
+    fun read(): Settings {
+        return Json.decodeFromString(Settings.serializer(), File("config.json").readText())
+    }
+
     fun save(key: String, value: Any) {
         val jsonFormat = Json { this.prettyPrint = true }
         val file = File("config.json")

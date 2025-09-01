@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "namespace:**_jack_o_lantern"
+          "name": "namespace:**_++jack_o_lantern"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "namespace:blocks/**_jack_o_lantern"
+  "random_sequence": "namespace:blocks/**_++jack_o_lantern"
 }

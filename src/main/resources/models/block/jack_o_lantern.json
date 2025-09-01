@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/orientable",
   "textures": {
-    "front": "namespace:block/**_jack_o_lantern",
-    "side": "namespace:block/pumpkin_side",
-    "top": "namespace:block/pumpkin_top"
+    "front": "namespace:block/**_++jack_o_lantern",
+    "side": "sns:block/++pumpkin_side",
+    "top": "sns:block/++pumpkin_top"
   }
 }
