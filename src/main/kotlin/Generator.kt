@@ -67,6 +67,16 @@ object Generator {
                 File(getDir("loot_table"), "${name}_${pattern}jack_o_lantern.json").writeText(readFile("/loot_tables/jack_o_lantern.json").replace("**", name).replace("namespace", namespace).replace("++", pattern))
                 File(getDir("recipes"), "${name}_${pattern}jack_o_lantern.json").writeText(readFile("/recipes/jack_o_lantern.json").replace("**", name).replace("namespace", namespace).replace("++", pattern))
             }
+            ModelType.WALL -> {
+                File(getDir("blockstates"),"${name}_wall.json").writeText(readFile("/blockstates/wall.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"),"${name}_wall_inventory.json").writeText(readFile("/models/block/wall_inventory.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"),"${name}_wall_post.json").writeText(readFile("/models/block/wall_post.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"),"${name}_wall_side.json").writeText(readFile("/models/block/wall_side.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"),"${name}_wall_side_tall.json").writeText(readFile("/models/block/wall_side_tall.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/item"),"${name}_wall.json").writeText(readFile("/models/item/wall.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("recipes"),"${name}_wall.json").writeText(readFile("/recipes/wall.json").replace("**", name).replace("namespace", namespace))
+                File(getDir("loot_table"),"${name}_wall.json").writeText(readFile("/loot_tables/wall.json").replace("**", name).replace("namespace", namespace))
+            }
         }
 
     }
@@ -86,7 +96,7 @@ object Generator {
         val namespace = File.separator + namespace + File.separator
 
         return if (autoplace) mapOf(
-            "blockstates" to File(path, "assets$namespace/blockstates"),
+            "blockstates" to File(path, "assets/$namespace/blockstates"),
             "models/block" to File(path, "assets/$namespace/models/block"),
             "models/item" to File(path, "assets/$namespace/models/item"),
             "recipes" to File(path, "data/$namespace/recipes"),
