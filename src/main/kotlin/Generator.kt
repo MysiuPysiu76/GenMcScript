@@ -77,6 +77,12 @@ object Generator {
                 File(getDir("recipes"),"${name}_wall.json").writeText(readFile("/recipes/wall.json").replace("**", name).replace("namespace", namespace))
                 File(getDir("loot_table"),"${name}_wall.json").writeText(readFile("/loot_tables/wall.json").replace("**", name).replace("namespace", namespace))
             }
+            ModelType.COLUMN -> {
+                File(getDir("blockstates"), "${name}.json").writeText(readFile("/blockstates/column.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"), "${name}.json").writeText(readFile("/models/block/column.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/item"), "${name}.json").writeText(readFile("/models/item/column.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("loot_table"), "${name}.json").writeText(readFile("/loot_tables/column.json").replace("**", name).replace("namespace", namespace))
+            }
         }
 
     }

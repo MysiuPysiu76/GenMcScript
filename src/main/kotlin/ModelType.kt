@@ -1,5 +1,6 @@
 
 enum class ModelType {
+    COLUMN,
     SLAB,
     STAIRS,
     WALL,
