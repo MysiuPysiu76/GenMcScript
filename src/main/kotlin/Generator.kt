@@ -80,8 +80,14 @@ object Generator {
             ModelType.COLUMN -> {
                 File(getDir("blockstates"), "${name}.json").writeText(readFile("/blockstates/column.json").replace("::", name).replace("namespace", namespace))
                 File(getDir("models/block"), "${name}.json").writeText(readFile("/models/block/column.json").replace("::", name).replace("namespace", namespace))
-                File(getDir("models/item"), "${name}.json").writeText(readFile("/models/item/column.json").replace("::", name).replace("namespace", namespace))
-                File(getDir("loot_table"), "${name}.json").writeText(readFile("/loot_tables/column.json").replace("**", name).replace("namespace", namespace))
+                File(getDir("models/item"), "${name}.json").writeText(readFile("/models/item/block.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("loot_table"), "${name}.json").writeText(readFile("/loot_tables/block.json").replace("**", name).replace("namespace", namespace))
+            }
+            ModelType.BLOCK -> {
+                File(getDir("blockstates"), "${name}.json").writeText(readFile("/blockstates/block.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"), "${name}.json").writeText(readFile("/models/block/block.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/item"), "${name}.json").writeText(readFile("/models/item/block.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("loot_table"), "${name}.json").writeText(readFile("/loot_tables/block.json").replace("**", name).replace("namespace", namespace))
             }
         }
 
