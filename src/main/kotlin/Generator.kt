@@ -89,6 +89,13 @@ object Generator {
                 File(getDir("models/item"), "${name}.json").writeText(readFile("/models/item/block.json").replace("::", name).replace("namespace", namespace))
                 File(getDir("loot_table"), "${name}.json").writeText(readFile("/loot_tables/block.json").replace("**", name).replace("namespace", namespace))
             }
+            ModelType.BOOKSHELF -> {
+                File(getDir("blockstates"), "${name}_bookshelf.json").writeText(readFile("/blockstates/block.json").replace("::", name + "_bookshelf").replace("namespace", namespace))
+                File(getDir("models/block"), "${name}_bookshelf.json").writeText(readFile("/models/block/bookshelf.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/item"), "${name}_bookshelf.json").writeText(readFile("/models/item/block.json").replace("::", name + "_bookshelf").replace("namespace", namespace))
+                File(getDir("loot_table"), "${name}_bookshelf.json").writeText(readFile("/loot_tables/bookshelf.json").replace("**", name).replace("namespace", namespace))
+                File(getDir("recipes"),"${name}_bookshelf.json").writeText(readFile("/recipes/bookshelf.json").replace("**", name).replace("namespace", namespace))
+            }
         }
 
     }

@@ -6,5 +6,6 @@ enum class ModelType {
     STAIRS,
     WALL,
     PUMPKIN_CARVED,
-    PUMPKIN_JACK
+    PUMPKIN_JACK,
+    BOOKSHELF
 }
