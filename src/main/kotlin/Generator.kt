@@ -96,6 +96,15 @@ object Generator {
                 File(getDir("loot_table"), "${name}_bookshelf.json").writeText(readFile("/loot_tables/bookshelf.json").replace("**", name).replace("namespace", namespace))
                 File(getDir("recipes"),"${name}_bookshelf.json").writeText(readFile("/recipes/bookshelf.json").replace("**", name).replace("namespace", namespace))
             }
+            ModelType.FENCE -> {
+                File(getDir("blockstates"),"${name}_fence.json").writeText(readFile("/blockstates/fence.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"),"${name}_fence_inventory.json").writeText(readFile("/models/block/fence_inventory.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"),"${name}_fence_post.json").writeText(readFile("/models/block/fence_post.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"),"${name}_fence_side.json").writeText(readFile("/models/block/fence_side.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/item"),"${name}_fence.json").writeText(readFile("/models/item/fence.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("recipes"),"${name}_fence.json").writeText(readFile("/recipes/fence.json").replace("**", name).replace("namespace", namespace))
+                File(getDir("loot_table"),"${name}_fence.json").writeText(readFile("/loot_tables/fence.json").replace("**", name).replace("namespace", namespace))
+            }
         }
 
     }

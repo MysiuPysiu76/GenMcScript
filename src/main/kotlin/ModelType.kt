@@ -5,6 +5,7 @@ enum class ModelType {
     SLAB,
     STAIRS,
     WALL,
+    FENCE,
     PUMPKIN_CARVED,
     PUMPKIN_JACK,
     BOOKSHELF
