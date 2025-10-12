@@ -105,6 +105,19 @@ object Generator {
                 File(getDir("recipes"),"${name}_fence.json").writeText(readFile("/recipes/fence.json").replace("**", name).replace("namespace", namespace))
                 File(getDir("loot_table"),"${name}_fence.json").writeText(readFile("/loot_tables/fence.json").replace("**", name).replace("namespace", namespace))
             }
+            ModelType.HEAD -> {
+                File(getDir("blockstates"),"${name}_head.json").writeText(readFile("/blockstates/head.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("blockstates"),"${name}_wall_head.json").writeText(readFile("/blockstates/wall_head.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"),"${name}_head_0.json").writeText(readFile("/models/block/head.json").replace("::", name).replace("namespace", namespace).replace("++", "head_0"))
+                File(getDir("models/block"),"${name}_head_1.json").writeText(readFile("/models/block/head.json").replace("::", name).replace("namespace", namespace).replace("++", "head_1"))
+                File(getDir("models/block"),"${name}_head_2.json").writeText(readFile("/models/block/head.json").replace("::", name).replace("namespace", namespace).replace("++", "head_2"))
+                File(getDir("models/block"),"${name}_head_3.json").writeText(readFile("/models/block/head.json").replace("::", name).replace("namespace", namespace).replace("++", "head_3"))
+                File(getDir("models/block"),"${name}_wall_head.json").writeText(readFile("/models/block/head.json").replace("::", name).replace("namespace", namespace).replace("++", "wall_head"))
+                File(getDir("models/block"),"${name}_head_inventory.json").writeText(readFile("/models/block/head.json").replace("::", name).replace("namespace", namespace).replace("++", "head_inventory"))
+                File(getDir("models/item"),"${name}_head.json").writeText(readFile("/models/item/head.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("loot_table"),"${name}_head.json").writeText(readFile("/loot_tables/head.json").replace("**", name + "_head").replace("namespace", namespace).replace("==", name + "_head"))
+                File(getDir("loot_table"),"${name}_wall_head.json").writeText(readFile("/loot_tables/head.json").replace("**", name + "_wall_head").replace("namespace", namespace).replace("==", name + "_head"))
+            }
         }
 
     }

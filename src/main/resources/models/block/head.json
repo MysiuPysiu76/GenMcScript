@@ -1,0 +1,6 @@
+{
+  "parent": "namespace:block/++",
+  "textures": {
+    "texture": "namespace:block/::_head"
+  }
+}
