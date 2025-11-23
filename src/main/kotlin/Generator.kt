@@ -24,6 +24,7 @@ object Generator {
                 File(getDir("models/block"), "${name}_slab_top.json").writeText(readFile("/models/block/slab_top.json").replace("::", name).replace("namespace", namespace))
                 File(getDir("models/item"), "${name}_slab.json").writeText(readFile("/models/item/slab.json").replace("::", name).replace("namespace", namespace))
                 File(getDir("recipes"), "${name}_slab.json").writeText(readFile("/recipes/slab.json").replace("**", name).replace("namespace", namespace))
+                File(getDir("recipes"), "${name}_slab_stonecutting.json").writeText(readFile("/recipes/slab_stonecutting.json").replace("**", name).replace("namespace", namespace))
                 File(getDir("loot_table"), "${name}_slab.json").writeText(readFile("/loot_tables/slab.json").replace("**", name).replace("namespace", namespace))
             }
             ModelType.STAIRS -> {
@@ -33,6 +34,7 @@ object Generator {
                 File(getDir("models/block"),"${name}_stairs_outer.json").writeText(readFile("/models/block/stairs_outer.json").replace("::", name).replace("namespace", namespace))
                 File(getDir("models/item"),"${name}_stairs.json").writeText(readFile("/models/item/stairs.json").replace("::", name).replace("namespace", namespace))
                 File(getDir("recipes"),"${name}_stairs.json").writeText(readFile("/recipes/stairs.json").replace("**", name).replace("namespace", namespace))
+                File(getDir("recipes"),"${name}_stairs_stonecutting.json").writeText(readFile("/recipes/stairs_stonecutting.json").replace("**", name).replace("namespace", namespace))
                 File(getDir("loot_table"),"${name}_stairs.json").writeText(readFile("/loot_tables/stairs.json").replace("**", name).replace("namespace", namespace))
             }
             ModelType.PUMPKIN_CARVED -> {
@@ -75,6 +77,7 @@ object Generator {
                 File(getDir("models/block"),"${name}_wall_side_tall.json").writeText(readFile("/models/block/wall_side_tall.json").replace("::", name).replace("namespace", namespace))
                 File(getDir("models/item"),"${name}_wall.json").writeText(readFile("/models/item/wall.json").replace("::", name).replace("namespace", namespace))
                 File(getDir("recipes"),"${name}_wall.json").writeText(readFile("/recipes/wall.json").replace("**", name).replace("namespace", namespace))
+                File(getDir("recipes"),"${name}_wall_stonecutting.json").writeText(readFile("/recipes/wall_stonecutting.json").replace("**", name).replace("namespace", namespace))
                 File(getDir("loot_table"),"${name}_wall.json").writeText(readFile("/loot_tables/wall.json").replace("**", name).replace("namespace", namespace))
             }
             ModelType.COLUMN -> {
@@ -117,6 +120,12 @@ object Generator {
                 File(getDir("models/item"),"${name}_head.json").writeText(readFile("/models/item/head.json").replace("::", name).replace("namespace", namespace))
                 File(getDir("loot_table"),"${name}_head.json").writeText(readFile("/loot_tables/head.json").replace("**", name + "_head").replace("namespace", namespace).replace("==", name + "_head"))
                 File(getDir("loot_table"),"${name}_wall_head.json").writeText(readFile("/loot_tables/head.json").replace("**", name + "_wall_head").replace("namespace", namespace).replace("==", name + "_head"))
+            }
+            ModelType.BLOCK_BOTTOM_TOP -> {
+                File(getDir("blockstates"), "${name}.json").writeText(readFile("/blockstates/block.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/block"), "${name}.json").writeText(readFile("/models/block/block_bottom_top.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("models/item"), "${name}.json").writeText(readFile("/models/item/block.json").replace("::", name).replace("namespace", namespace))
+                File(getDir("loot_table"), "${name}.json").writeText(readFile("/loot_tables/block.json").replace("**", name).replace("namespace", namespace))
             }
         }
 

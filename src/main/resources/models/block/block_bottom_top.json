@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "namespace:block/::_bottom",
+    "side": "namespace:block/::",
+    "top": "namespace:block/::_top"
+  }
+}

@@ -26,20 +26,22 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
             return
         }
 
-        settings.type = ModelType.valueOf(type.toString().uppercase(getDefault()))
-        settings.material = material.toString()
+        val typeString = type.toString().uppercase(getDefault())
 
-        if (!path.isNullOrBlank()) settings.path = path.toString()
+        for (type in typeString.split('/')) {
+            settings.type = ModelType.valueOf(type)
+            settings.material = material.toString()
 
-        if (!namespace.isNullOrBlank()) settings.namespace = namespace.toString()
+            if (!path.isNullOrBlank()) settings.path = path.toString()
 
-        if (!pattern.isNullOrBlank()) settings.pattern = pattern.toString()
-        else settings.pattern = ""
+            if (!namespace.isNullOrBlank()) settings.namespace = namespace.toString()
 
-        if (!autoplace.isNullOrBlank()) settings.autoplace = autoplace.toString().toBoolean()
+            if (!pattern.isNullOrBlank()) settings.pattern = pattern.toString()
+            else settings.pattern = ""
 
-        Generator.generate(settings)
+            if (!autoplace.isNullOrBlank()) settings.autoplace = autoplace.toString().toBoolean()
 
+            Generator.generate(settings)
+        }
     }
-
 }

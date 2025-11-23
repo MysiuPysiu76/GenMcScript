@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "wall",
   "key": {
     "#": {
       "item": "namespace:**s"
