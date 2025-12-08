@@ -12,6 +12,8 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
     private val pattern by option("-pt", "--pattern", help = "Enter pattern")
     private val path by option("-p", "--path", help = "Path to save generated files")
     private val autoplace by option("-a", "-ap", "--autoplace", help = "Set auto place")
+    private val s by option("-s", help = "Set s").flag(default = false)
+    private val stonecutting by option("-sc", "--stonecutting", help = "Generate stonecutter recipe").flag(default = false)
 
     override fun run() {
 
@@ -34,6 +36,8 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
         for (type in typeString.split('/')) {
             settings.type = ModelType.valueOf(type)
             settings.material = if (material.isNullOrBlank()) "" else material.toString()
+            settings.s = s
+            settings.stonecutting = stonecutting
 
             if (!path.isNullOrBlank()) settings.path = path.toString()
 

@@ -1,3 +1,4 @@
+import kotlin.properties.Delegates
 
 class ModelSettings(val settings : Settings) {
 
@@ -8,5 +9,7 @@ class ModelSettings(val settings : Settings) {
     lateinit var type : ModelType
     lateinit var material : String
     lateinit var pattern : String
+    var s by Delegates.notNull<Boolean>()
+    var stonecutting by Delegates.notNull<Boolean>()
 
 }

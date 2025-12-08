@@ -11,6 +11,7 @@ class ModelGenerator(val settings: ModelSettings) {
 
     private fun initBinds() {
         var rootBlock = settings.material
+        if (settings.s) rootBlock += "s"
 
         val secondNamespace = if (rootBlock.isEmpty()) "minecraft" else settings.namespace
 
@@ -44,6 +45,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block","slab_top", true)
         generate("models/item","slab", true)
         generate("recipes","slab", true)
+        if (settings.stonecutting) generate("recipes","slab_stonecutting", true)
         generate("loot_tables","slab", true)
     }
 
@@ -54,6 +56,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "stairs_outer", true)
         generate("models/item", "stairs", true)
         generate("recipes", "stairs", true)
+        if (settings.stonecutting) generate("recipes", "stairs_stonecutting", true)
         generate("loot_tables", "stairs", true)
     }
 
@@ -65,6 +68,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "wall_side_tall", true)
         generate("models/item", "wall", true)
         generate("recipes", "wall", true)
+        if (settings.stonecutting) generate("recipes", "wall_stonecutting", true)
         generate("loot_tables", "wall", true)
     }
 
