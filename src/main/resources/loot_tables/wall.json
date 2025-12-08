@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "namespace:**_wall"
+          "name": "namespace:material_wall"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "namespace:blocks/**_wall"
+  "random_sequence": "namespace:blocks/material_wall"
 }

@@ -11,7 +11,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "namespace:**_slab",
+                  "block": "namespace:material_slab",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "type": "double"
@@ -25,11 +25,11 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "namespace:**_slab"
+          "name": "namespace:material_slab"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "namespace:blocks/**_slab"
+  "random_sequence": "namespace:blocks/material_slab"
 }

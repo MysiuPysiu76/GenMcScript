@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "namespace:**_stairs"
+          "name": "namespace:material_stairs"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "namespace:blocks/**_stairs"
+  "random_sequence": "namespace:blocks/material_stairs"
 }

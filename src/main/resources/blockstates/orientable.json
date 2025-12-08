@@ -1,16 +1,19 @@
 {
   "variants": {
-    "axis=x": {
+    "facing=east": {
       "model": "namespace:block/material",
-      "x": 90,
       "y": 90
     },
-    "axis=y": {
+    "facing=north": {
       "model": "namespace:block/material"
     },
-    "axis=z": {
+    "facing=south": {
       "model": "namespace:block/material",
-      "x": 90
+      "y": 180
+    },
+    "facing=west": {
+      "model": "namespace:block/material",
+      "y": 270
     }
   }
 }

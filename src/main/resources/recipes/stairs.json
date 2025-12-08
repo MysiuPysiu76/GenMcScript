@@ -4,7 +4,7 @@
   "group": "stairs",
   "key": {
     "#": {
-      "item": "namespace:**s"
+      "item": "namespace:root_block"
     }
   },
   "pattern": [
@@ -14,7 +14,7 @@
   ],
   "result": {
     "count": 4,
-    "item": "namespace:**_stairs"
+    "item": "namespace:material_stairs"
   },
   "show_notification": true
 }

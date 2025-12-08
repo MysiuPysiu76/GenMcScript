@@ -1,5 +1,6 @@
 
 import com.github.ajalt.clikt.core.CliktCommand
+import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import java.util.Locale.getDefault
 
@@ -21,16 +22,18 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
             return
         }
 
-        if (material.isNullOrBlank()) {
-            echo("Material is required", err = true)
-            return
+        if (material.isNullOrBlank() && !type?.contains("pumpkin")!!) {
+            if (material.isNullOrBlank()) {
+                echo("Material is required", err = true)
+                return
+            }
         }
 
         val typeString = type.toString().uppercase(getDefault())
 
         for (type in typeString.split('/')) {
             settings.type = ModelType.valueOf(type)
-            settings.material = material.toString()
+            settings.material = if (material.isNullOrBlank()) "" else material.toString()
 
             if (!path.isNullOrBlank()) settings.path = path.toString()
 
@@ -44,4 +47,5 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
             Generator.generate(settings)
         }
     }
+
 }

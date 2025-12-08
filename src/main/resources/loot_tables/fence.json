@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "namespace:**_fence"
+          "name": "namespace:material_fence"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "namespace:blocks/**_fence"
+  "random_sequence": "namespace:blocks/material_fence"
 }

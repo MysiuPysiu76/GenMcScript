@@ -3,7 +3,7 @@
   "category": "wall",
   "key": {
     "#": {
-      "item": "namespace:**s"
+      "item": "namespace:root_block"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
   ],
   "result": {
     "count": 6,
-    "item": "namespace:**_wall"
+    "item": "namespace:material_wall"
   },
   "show_notification": true
 }

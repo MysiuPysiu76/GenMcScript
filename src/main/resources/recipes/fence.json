@@ -7,7 +7,7 @@
       "item": "minecraft:stick"
     },
     "W": {
-      "item": "namespace:**"
+      "item": "namespace:material_planks"
     }
   },
   "pattern": [
@@ -16,7 +16,7 @@
   ],
   "result": {
     "count": 3,
-    "item": "namespace:**_fence"
+    "item": "namespace:material_fence"
   },
   "show_notification": true
 }

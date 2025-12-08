@@ -4,7 +4,7 @@
   "group": "slab",
   "key": {
     "#": {
-      "item": "namespace:**s"
+      "item": "namespace:root_block"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
   ],
   "result": {
     "count": 6,
-    "item": "namespace:**_slab"
+    "item": "namespace:material_slab"
   },
   "show_notification": true
 }

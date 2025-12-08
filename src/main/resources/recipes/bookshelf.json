@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "tag": "namespace:**_planks"
+      "item": "namespace:material_planks"
     },
     "X": {
       "item": "minecraft:book"
@@ -15,7 +15,7 @@
     "###"
   ],
   "result": {
-    "item": "namespace:**_bookshelf"
+    "item": "namespace:material_bookshelf"
   },
   "show_notification": true
 }

@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "namespace:**_bookshelf"
+              "name": "namespace:material_bookshelf"
             },
             {
               "type": "minecraft:item",
@@ -46,5 +46,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "namespace:blocks/**_bookshelf"
+  "random_sequence": "namespace:blocks/material_bookshelf"
 }

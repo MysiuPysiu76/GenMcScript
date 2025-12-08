@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "namespace:block/::_top",
-    "side": "namespace:block/::_side"
+    "end": "namespace:block/material_top",
+    "side": "namespace:block/material_side"
   }
 }

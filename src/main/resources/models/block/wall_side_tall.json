@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side_tall",
   "textures": {
-    "wall": "namespace:block/::s"
+    "wall": "namespace:block/root_block"
   }
 }

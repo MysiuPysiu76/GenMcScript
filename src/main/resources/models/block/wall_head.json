@@ -1,0 +1,6 @@
+{
+  "parent": "namespace:block/wall_head",
+  "textures": {
+    "texture": "namespace:block/material_head"
+  }
+}

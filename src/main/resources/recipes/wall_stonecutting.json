@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "item": "namespace:**s"
+    "item": "namespace:root_block"
   },
-  "result": "namespace:**_wall"
+  "result": "namespace:material_wall"
 }

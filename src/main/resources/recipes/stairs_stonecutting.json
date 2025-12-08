@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "item": "namespace:**s"
+    "item": "namespace:root_block"
   },
-  "result": "namespace:**_stairs"
+  "result": "namespace:material_stairs"
 }
