@@ -34,21 +34,36 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
         val typeString = type.toString().uppercase(getDefault())
 
         for (type in typeString.split('/')) {
-            settings.type = ModelType.valueOf(type)
-            settings.material = if (material.isNullOrBlank()) "" else material.toString()
-            settings.s = s
-            settings.stonecutting = stonecutting
+            val isMaterialEmpty = material.isNullOrBlank()
+            var iterator: String
+            if (isMaterialEmpty) iterator = "null"
+            else iterator = material.toString()
 
-            if (!path.isNullOrBlank()) settings.path = path.toString()
+            for (material in iterator!!.split('/')) {
+                val isPatternEmpty = pattern.isNullOrBlank()
+                var patternIterator: String
+                if (isPatternEmpty) patternIterator = "null"
+                else patternIterator = pattern.toString()
 
-            if (!namespace.isNullOrBlank()) settings.namespace = namespace.toString()
+                for (pattern in patternIterator.split('/')) {
+                    settings.type = ModelType.valueOf(type)
+                    settings.material = if (isMaterialEmpty) "" else material
+                    settings.s = s
+                    settings.stonecutting = stonecutting
 
-            if (!pattern.isNullOrBlank()) settings.pattern = pattern.toString()
-            else settings.pattern = ""
+                    if (!path.isNullOrBlank()) settings.path = path.toString()
 
-            if (!autoplace.isNullOrBlank()) settings.autoplace = autoplace.toString().toBoolean()
+                    if (!namespace.isNullOrBlank()) settings.namespace = namespace.toString()
 
-            Generator.generate(settings)
+                    if (!isPatternEmpty) settings.pattern = pattern
+                    else settings.pattern = ""
+
+                    if (!autoplace.isNullOrBlank()) settings.autoplace = autoplace.toString().toBoolean()
+
+                    Generator.generate(settings)
+                }
+
+            }
         }
     }
 
