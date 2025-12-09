@@ -6,6 +6,7 @@ enum class ModelType {
     STAIRS,
     WALL,
     FENCE,
+    BUTTON,
     PUMPKIN_CARVED,
     PUMPKIN_JACK,
     BLOCK_BOTTOM_TOP,

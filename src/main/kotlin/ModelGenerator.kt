@@ -82,6 +82,16 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes", "fence", true)
     }
 
+    fun button() {
+        generate("blockstates", "button", true)
+        generate("models/block", "button", true)
+        generate("models/block", "button_inventory", true)
+        generate("models/block", "button_pressed", true)
+        generate("models/item", "button", true)
+        generate("loot_tables", "button", true)
+        generate("recipes", "button", true)
+    }
+
     fun pumpkinCarved() {
         val x = if (settings.material.isEmpty()) "" else "_"
         val name = "${settings.pattern}_carved_${settings.material}${x}pumpkin"

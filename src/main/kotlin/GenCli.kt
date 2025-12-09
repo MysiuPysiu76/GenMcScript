@@ -35,15 +35,11 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
 
         for (type in typeString.split('/')) {
             val isMaterialEmpty = material.isNullOrBlank()
-            var iterator: String
-            if (isMaterialEmpty) iterator = "null"
-            else iterator = material.toString()
+            val iterator = if (isMaterialEmpty) "null" else material.toString()
 
-            for (material in iterator!!.split('/')) {
+            for (material in iterator.split('/')) {
                 val isPatternEmpty = pattern.isNullOrBlank()
-                var patternIterator: String
-                if (isPatternEmpty) patternIterator = "null"
-                else patternIterator = pattern.toString()
+                val patternIterator = if (isPatternEmpty) "null" else pattern.toString()
 
                 for (pattern in patternIterator.split('/')) {
                     settings.type = ModelType.valueOf(type)
@@ -62,7 +58,6 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
 
                     Generator.generate(settings)
                 }
-
             }
         }
     }

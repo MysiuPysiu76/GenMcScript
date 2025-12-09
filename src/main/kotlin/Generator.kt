@@ -16,6 +16,7 @@ object Generator {
             ModelType.WALL -> gen.wall()
 
             ModelType.FENCE -> gen.fence()
+            ModelType.BUTTON -> gen.button()
 
             ModelType.PUMPKIN_CARVED -> gen.pumpkinCarved()
             ModelType.PUMPKIN_JACK -> gen.pumpkinJackLantern()
