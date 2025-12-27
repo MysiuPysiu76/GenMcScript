@@ -137,6 +137,10 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("loot_tables", "wall_head", true)
     }
 
+    fun item() {
+        generate("models/item", "item")
+    }
+
     private fun generate(model: String, source: String, onType: Boolean = false) {
         generate(model, settings.material, source, onType)
     }

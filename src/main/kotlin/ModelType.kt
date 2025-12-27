@@ -11,5 +11,6 @@ enum class ModelType {
     PUMPKIN_JACK,
     BLOCK_BOTTOM_TOP,
     BOOKSHELF,
-    HEAD
+    HEAD,
+    ITEM
 }

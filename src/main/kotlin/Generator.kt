@@ -22,6 +22,8 @@ object Generator {
             ModelType.PUMPKIN_JACK -> gen.pumpkinJackLantern()
             ModelType.BOOKSHELF -> gen.bookshelf()
             ModelType.HEAD -> gen.head()
+
+            ModelType.ITEM -> gen.item()
         }
     }
 
