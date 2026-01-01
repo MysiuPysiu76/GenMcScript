@@ -12,5 +12,6 @@ enum class ModelType {
     BLOCK_BOTTOM_TOP,
     BOOKSHELF,
     HEAD,
+    SKULL,
     ITEM
 }

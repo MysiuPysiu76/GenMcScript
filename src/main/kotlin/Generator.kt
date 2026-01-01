@@ -18,10 +18,13 @@ object Generator {
             ModelType.FENCE -> gen.fence()
             ModelType.BUTTON -> gen.button()
 
+            ModelType.BOOKSHELF -> gen.bookshelf()
+
             ModelType.PUMPKIN_CARVED -> gen.pumpkinCarved()
             ModelType.PUMPKIN_JACK -> gen.pumpkinJackLantern()
-            ModelType.BOOKSHELF -> gen.bookshelf()
+
             ModelType.HEAD -> gen.head()
+            ModelType.SKULL -> gen.skull()
 
             ModelType.ITEM -> gen.item()
         }

@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "namespace:material_head"
+          "name": "namespace:material_head_type"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "namespace:blocks/material_head"
+  "random_sequence": "namespace:blocks/material_head_type"
 }

@@ -1,6 +1,6 @@
 {
   "parent": "namespace:block/head_2",
   "textures": {
-    "texture": "namespace:block/material_head"
+    "texture": "namespace:block/material_head_type"
   }
 }

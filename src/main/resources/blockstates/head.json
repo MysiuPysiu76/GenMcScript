@@ -1,64 +1,64 @@
 {
   "variants": {
     "rotation=0": {
-      "model": "namespace:block/material_head_0"
+      "model": "namespace:block/material_head_type_0"
     },
     "rotation=1": {
-      "model": "namespace:block/material_head_1"
+      "model": "namespace:block/material_head_type_1"
     },
     "rotation=2": {
-      "model": "namespace:block/material_head_2",
+      "model": "namespace:block/material_head_type_2",
       "y": 90
     },
     "rotation=3": {
-      "model": "namespace:block/material_head_3",
+      "model": "namespace:block/material_head_type_3",
       "y": 90
     },
     "rotation=4": {
-      "model": "namespace:block/material_head_0",
+      "model": "namespace:block/material_head_type_0",
       "y": 90
     },
     "rotation=5": {
-      "model": "namespace:block/material_head_1",
+      "model": "namespace:block/material_head_type_1",
       "y": 90
     },
     "rotation=6": {
-      "model": "namespace:block/material_head_2",
+      "model": "namespace:block/material_head_type_2",
       "y": 180
     },
     "rotation=7": {
-      "model": "namespace:block/material_head_3",
+      "model": "namespace:block/material_head_type_3",
       "y": 180
     },
     "rotation=8": {
-      "model": "namespace:block/material_head_0",
+      "model": "namespace:block/material_head_type_0",
       "y": 180
     },
     "rotation=9": {
-      "model": "namespace:block/material_head_1",
+      "model": "namespace:block/material_head_type_1",
       "y": 180
     },
     "rotation=10": {
-      "model": "namespace:block/material_head_2",
+      "model": "namespace:block/material_head_type_2",
       "y": 270
     },
     "rotation=11": {
-      "model": "namespace:block/material_head_3",
+      "model": "namespace:block/material_head_type_3",
       "y": 270
     },
     "rotation=12": {
-      "model": "namespace:block/material_head_0",
+      "model": "namespace:block/material_head_type_0",
       "y": 270
     },
     "rotation=13": {
-      "model": "namespace:block/material_head_1",
+      "model": "namespace:block/material_head_type_1",
       "y": 270
     },
     "rotation=14": {
-      "model": "namespace:block/material_head_2"
+      "model": "namespace:block/material_head_type_2"
     },
     "rotation=15": {
-      "model": "namespace:block/material_head_3"
+      "model": "namespace:block/material_head_type_3"
     }
   }
 }

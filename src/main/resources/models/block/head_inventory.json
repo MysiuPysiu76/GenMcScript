@@ -1,6 +1,6 @@
 {
   "parent": "bignay:block/head_inventory",
   "textures": {
-    "texture": "namespace:block/material_head"
+    "texture": "namespace:block/material_head_type"
   }
 }

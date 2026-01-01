@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "namespace:block/material_wall_head"
+      "model": "namespace:block/material_wall_head_type"
     },
     "facing=south": {
-      "model": "namespace:block/material_wall_head",
+      "model": "namespace:block/material_wall_head_type",
       "y": 180
     },
     "facing=west": {
-      "model": "namespace:block/material_wall_head",
+      "model": "namespace:block/material_wall_head_type",
       "y": 270
     },
     "facing=east": {
-      "model": "namespace:block/material_wall_head",
+      "model": "namespace:block/material_wall_head_type",
       "y": 90
     }
   }

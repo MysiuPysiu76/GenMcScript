@@ -1,5 +1,6 @@
 
 import java.io.File
+import java.util.Locale.getDefault
 
 class ModelGenerator(val settings: ModelSettings) {
 
@@ -15,7 +16,13 @@ class ModelGenerator(val settings: ModelSettings) {
 
         val secondNamespace = if (rootBlock.isEmpty()) "minecraft" else settings.namespace
 
-        binds = mapOf("root_block" to rootBlock, "pattern_" to settings.pattern, "sns" to secondNamespace, "mt_" to if (secondNamespace.equals(settings.namespace)) settings.material + "_" else "" )
+        binds = mapOf(
+            "root_block" to rootBlock,
+            "pattern_" to settings.pattern,
+            "sns" to secondNamespace,
+            "mt_" to if (secondNamespace.equals(settings.namespace)) settings.material + "_" else "",
+            "head_type" to settings.type.toString().lowercase(getDefault())
+        )
     }
 
     fun block() {
@@ -135,6 +142,20 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/item", "head", true)
         generate("loot_tables", "head", true)
         generate("loot_tables", "wall_head", true)
+    }
+
+    fun skull() {
+        generate("blockstates", "${settings.material}_skull", "head", false)
+        generate("blockstates", "${settings.material}_wall_skull", "wall_head", false)
+        generate("models/block", "${settings.material}_skull_0", "head_0", false)
+        generate("models/block", "${settings.material}_skull_1", "head_1", false)
+        generate("models/block", "${settings.material}_skull_2", "head_2", false)
+        generate("models/block", "${settings.material}_skull_3", "head_3", false)
+        generate("models/block", "${settings.material}_wall_skull", "wall_head", false)
+        generate("models/block", "${settings.material}_skull_inventory", "head_inventory", false)
+        generate("models/item", "${settings.material}_skull", "head", false)
+        generate("loot_tables", "${settings.material}_skull", "head", false)
+        generate("loot_tables", "${settings.material}_wall_skull", "wall_head", false)
     }
 
     fun item() {
