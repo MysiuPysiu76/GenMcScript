@@ -13,5 +13,6 @@ enum class ModelType {
     BOOKSHELF,
     HEAD,
     SKULL,
+    CANDLE,
     ITEM
 }

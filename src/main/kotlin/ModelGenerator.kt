@@ -158,6 +158,20 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("loot_tables", "${settings.material}_wall_skull", "wall_head", false)
     }
 
+    fun candle() {
+        generate("blockstates", "${settings.pattern}_${settings.material}_candle", "candle")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_one_candle", "candle_one_candle")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_one_candle_lit", "candle_one_candle_lit")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_two_candles", "candle_two_candles")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_two_candles_lit", "candle_two_candles_lit")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_three_candles", "candle_three_candles")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_three_candles_lit", "candle_three_candles_lit")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_four_candles", "candle_four_candles")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_four_candles_lit", "candle_four_candles_lit")
+        generate("models/item", "${settings.pattern}_${settings.material}_candle", "candle")
+        generate("loot_tables", "${settings.pattern}_${settings.material}_candle", "candle")
+    }
+
     fun item() {
         generate("models/item", "item")
     }
@@ -166,7 +180,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate(model, settings.material, source, onType)
     }
 
-    private fun generate(model: String, name: String, source: String, nameBasedOnType: Boolean) {
+    private fun generate(model: String, name: String, source: String, nameBasedOnType: Boolean = false) {
         val material = if (nameBasedOnType) "${settings.material}_${source}" else name
         var content = FilesUtils.readFile("/${model}/${source}.json").replace("namespace", settings.namespace).replace("material", settings.material)
         for((k, v) in binds) content = content.replace(k, v)

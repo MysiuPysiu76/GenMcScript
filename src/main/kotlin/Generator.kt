@@ -26,6 +26,8 @@ object Generator {
             ModelType.HEAD -> gen.head()
             ModelType.SKULL -> gen.skull()
 
+            ModelType.CANDLE -> gen.candle()
+
             ModelType.ITEM -> gen.item()
         }
     }
