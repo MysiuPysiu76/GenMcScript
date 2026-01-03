@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "namespace:block/material",
+    "side": "sns:block/material_side",
+    "top": "sns:block/material_top"
+  }
+}

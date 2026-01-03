@@ -10,6 +10,7 @@ object Generator {
             ModelType.BLOCK -> gen.block()
             ModelType.COLUMN -> gen.column()
             ModelType.BLOCK_BOTTOM_TOP -> gen.blockBottomTop()
+            ModelType.ORIENTABLE -> gen.orientable()
 
             ModelType.SLAB -> gen.slab()
             ModelType.STAIRS -> gen.stairs()

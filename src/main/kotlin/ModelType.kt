@@ -8,6 +8,7 @@ enum class ModelType {
     FENCE,
     BUTTON,
     PUMPKIN_CARVED,
+    ORIENTABLE,
     PUMPKIN_JACK,
     BLOCK_BOTTOM_TOP,
     BOOKSHELF,

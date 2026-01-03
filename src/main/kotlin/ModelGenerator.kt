@@ -39,6 +39,13 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("loot_tables", "block")
     }
 
+    fun orientable() {
+        generate("blockstates", "orientable")
+        generate("models/block", "orientable")
+        generate("models/item", "block")
+        generate("loot_tables", "block")
+    }
+
     fun blockBottomTop() {
         generate("blockstates", "block")
         generate("models/block", "block_bottom_top")
