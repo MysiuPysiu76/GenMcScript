@@ -12,6 +12,8 @@ enum class ModelType {
     PUMPKIN_JACK,
     BLOCK_BOTTOM_TOP,
     BOOKSHELF,
+    PLANT,
+    PLANT_TALL,
     HEAD,
     SKULL,
     CANDLE,

@@ -21,6 +21,9 @@ object Generator {
 
             ModelType.BOOKSHELF -> gen.bookshelf()
 
+            ModelType.PLANT -> gen.plant()
+            ModelType.PLANT_TALL -> gen.plantTall()
+
             ModelType.PUMPKIN_CARVED -> gen.pumpkinCarved()
             ModelType.PUMPKIN_JACK -> gen.pumpkinJackLantern()
 

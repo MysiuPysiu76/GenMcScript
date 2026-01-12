@@ -179,6 +179,24 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("loot_tables", "${settings.pattern}_${settings.material}_candle", "candle")
     }
 
+    fun plant() {
+        generate("blockstates", "block")
+        generate("models/block", "plant")
+        generate("models/item", "item_block")
+        generate("loot_tables", "block")
+    }
+
+    fun plantTall() {
+        val material = settings.material
+        generate("blockstates", "tall_${settings.material}", "plant_tall")
+        generate("loot_tables", "tall_${settings.material}", "plant_tall")
+        settings.material = "tall_${material}_bottom"
+        generate("models/block", "tall_${material}_bottom", "plant")
+        settings.material = "tall_${material}_top"
+        generate("models/block", "tall_${material}_top", "plant")
+        generate("models/item", "tall_${material}", "item_block")
+    }
+
     fun item() {
         generate("models/item", "item")
     }

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "namespace:block/tall_material_bottom"
+    },
+    "half=upper": {
+      "model": "namespace:block/tall_material_top"
+    }
+  }
+}
