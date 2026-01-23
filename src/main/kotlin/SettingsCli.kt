@@ -19,17 +19,14 @@ class SettingsCli : CliktCommand(name = "settings", help = "Settings") {
 
         if (namespace != null) {
             SettingsManager.save("namespace", namespace!!)
-            return
         }
 
         if (path != null) {
             SettingsManager.save("path", path!!)
-            return
         }
 
         if (autoplace != null) {
             SettingsManager.save("autoplace", autoplace.toString().toBoolean())
-            return
         }
 
     }

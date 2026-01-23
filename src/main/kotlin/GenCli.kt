@@ -13,7 +13,7 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
     private val path by option("-p", "--path", help = "Path to save generated files")
     private val autoplace by option("-a", "-ap", "--autoplace", help = "Set auto place")
     private val s by option("-s", help = "Set s").flag(default = false)
-    private val stonecutting by option("-sc", "--stonecutting", help = "Generate stonecutter recipe").flag(default = false)
+    private val stonecutting by option("-sc", "-st", "--stonecutting", help = "Generate stonecutter recipe").flag(default = false)
 
     override fun run() {
 
