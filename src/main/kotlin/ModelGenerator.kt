@@ -106,6 +106,15 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes", "button", true)
     }
 
+    fun pressurePlate() {
+        generate("blockstates", "pressure_plate", true)
+        generate("models/block", "pressure_plate", true)
+        generate("models/block", "pressure_plate_down", true)
+        generate("models/item", "pressure_plate", true)
+        generate("loot_tables", "pressure_plate", true)
+        generate("recipes", "pressure_plate", true)
+    }
+
     fun pumpkinCarved() {
         val x = if (settings.material.isEmpty()) "" else "_"
         val name = "${settings.pattern}_carved_${settings.material}${x}pumpkin"

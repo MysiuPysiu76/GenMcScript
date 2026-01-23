@@ -7,6 +7,7 @@ enum class ModelType {
     WALL,
     FENCE,
     BUTTON,
+    PRESSURE_PLATE,
     PUMPKIN_CARVED,
     ORIENTABLE,
     PUMPKIN_JACK,

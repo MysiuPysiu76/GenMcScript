@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "namespace:block/material_pressure_plate"
+    },
+    "powered=true": {
+      "model": "namespace:block/material_pressure_plate_down"
+    }
+  }
+}

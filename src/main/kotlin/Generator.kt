@@ -18,6 +18,7 @@ object Generator {
 
             ModelType.FENCE -> gen.fence()
             ModelType.BUTTON -> gen.button()
+            ModelType.PRESSURE_PLATE -> gen.pressurePlate()
 
             ModelType.BOOKSHELF -> gen.bookshelf()
 
