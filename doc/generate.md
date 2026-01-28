@@ -86,6 +86,7 @@ The `type` parameter defines what kind of Minecraft model and related files will
 | **BOOKSHELF**        | Bookshelf-style block with unique side texture.              | Bookshelf              |
 | **PLANT**            | Simple cross-model plant.                                    | Grass, Dandelion       |
 | **PLANT_TALL**       | Two-block-high plant.                                        | Sunflower, Tall Grass  |
+| **PLANT_POT**        | Pot for this plant.                                          | Potted Dendalion       |
 | **HEAD**             | Decorative head block.                                       | Player Head            |
 | **SKULL**            | Skull-style head with rotation.                              | Skeleton Skull         |
 | **CANDLE**           | Candle block with multiple candle states.                    | Candle                 |
