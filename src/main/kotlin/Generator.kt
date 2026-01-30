@@ -35,6 +35,7 @@ object Generator {
             ModelType.CANDLE -> gen.candle()
 
             ModelType.ITEM -> gen.item()
+            ModelType.RECIPE -> gen.recipe()
         }
     }
 

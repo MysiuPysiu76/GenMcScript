@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "namespace:something"
+    }
+  },
+  "pattern": [
+    "   ",
+    "   ",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "item": "namespace:material"
+  }
+}

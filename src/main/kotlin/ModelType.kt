@@ -19,5 +19,6 @@ enum class ModelType {
     HEAD,
     SKULL,
     CANDLE,
-    ITEM
+    ITEM,
+    RECIPE
 }

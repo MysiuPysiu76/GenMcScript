@@ -91,6 +91,7 @@ The `type` parameter defines what kind of Minecraft model and related files will
 | **SKULL**            | Skull-style head with rotation.                              | Skeleton Skull         |
 | **CANDLE**           | Candle block with multiple candle states.                    | Candle                 |
 | **ITEM**             | Item-only model (no blockstate).                             | Stick, Iron Ingot      |
+| **RECIPE**           | Typical crafting table recipe.                               | Pickaxe, Dye, Pot      |
 
 
 The `--type` option must match one of the values above.
@@ -180,7 +181,7 @@ The `gen` command exits with an error when:
 - `--material` is required but missing
 - `--namespace` is when namespace in not entered in settings or gen command
 - An invalid model type is provided
-- `--autoplace` is enabled and `--path` is invalid
+- `--autoplace` is enabled or `--path` is invalid
 
 ---
 

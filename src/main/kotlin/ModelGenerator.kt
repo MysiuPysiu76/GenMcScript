@@ -217,6 +217,10 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/item", "item")
     }
 
+    fun recipe() {
+        generate("recipes", "recipe")
+    }
+
     private fun generate(model: String, source: String, onType: Boolean = false) {
         generate(model, settings.material, source, onType)
     }
