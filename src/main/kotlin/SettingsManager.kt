@@ -8,13 +8,14 @@ import java.io.File
 
 object SettingsManager {
 
+    private val file = File(".gms.config.json")
+
     fun read(): Settings {
-        return Json.decodeFromString(Settings.serializer(), File("config.json").readText())
+        return Json.decodeFromString(Settings.serializer(), file.readText())
     }
 
     fun save(key: String, value: Any) {
         val jsonFormat = Json { this.prettyPrint = true }
-        val file = File("config.json")
 
         val jsonObject: JsonObject = if (file.exists()) {
             val content = file.readText()
@@ -34,7 +35,7 @@ object SettingsManager {
     }
 
     fun reset() {
-        File("config.json").delete()
+        file.delete()
     }
 
 }
