@@ -20,5 +20,6 @@ enum class ModelType {
     SKULL,
     CANDLE,
     ITEM,
-    RECIPE
+    RECIPE,
+    RECIPE_SHAPELESS
 }

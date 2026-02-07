@@ -36,6 +36,7 @@ object Generator {
 
             ModelType.ITEM -> gen.item()
             ModelType.RECIPE -> gen.recipe()
+            ModelType.RECIPE_SHAPELESS -> gen.recipeShapeless()
         }
     }
 

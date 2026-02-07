@@ -221,6 +221,10 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes", "recipe")
     }
 
+    fun recipeShapeless() {
+        generate("recipes", "recipe_shapeless")
+    }
+
     private fun generate(model: String, source: String, onType: Boolean = false) {
         generate(model, settings.material, source, onType)
     }
