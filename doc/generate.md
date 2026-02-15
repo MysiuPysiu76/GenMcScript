@@ -42,8 +42,10 @@ gms gen [options]
 | `-pt`, `--pattern`              | Pattern or variant used by some model types for example pumpkins or candles          | value |
 | `-p`, `--path`                  | Override output directory for generated files                                        | value |
 | `-a`, `-ap`, `--autoplace`      | Enable or disable automatic file placement                                           | value |
-| `-s`                            | Optional boolean flag used for specific block variants (e.g. brick slab from bricks) | flag  |
+| `-ss`                           | Optional boolean flag used for specific block variants (e.g. brick slab from bricks) | flag  |
 | `-sc`, `-st`,  `--stonecutting` | Generate an additional stonecutter recipe                                            | flag  |
+| `-s`, `--source`,               | Set recipe source                                                                    | value |
+| `-c`, `--category`              | Set recipe category                                                                  | value |
 
 #### Option Types
 
@@ -69,30 +71,34 @@ gms gen --type wall --material bricks -s
 
 The `type` parameter defines what kind of Minecraft model and related files will be generated.
 
-| Model Type           | Description                                                  | Minecraft Example      |
-|----------------------|--------------------------------------------------------------|------------------------|
-| **BLOCK**            | Standard full cube block with the same texture on all sides. | Stone, Dirt            |
-| **COLUMN**           | Block with different side and top/bottom textures.           | Oak Log, Quartz Pillar |
-| **SLAB**             | Slab variant including bottom, top, and double slab models.  | Stone Slab             |
-| **STAIRS**           | Complete stair set (normal, inner, outer).                   | Oak Stairs             |
-| **WALL**             | Wall models with all connection variants.                    | Cobblestone Wall       |
-| **FENCE**            | Fence with post and side connections.                        | Oak Fence              |
-| **BUTTON**           | Button models for wall, floor, and ceiling placement.        | Stone Button           |
-| **PRESSURE_PLATE**   | Pressure plate models with pressed/unpressed states.         | Oak Pressure Plate     |
-| **ORIENTABLE**       | Block with orientation-based models.                         | Dropper, Dispenser     |
-| **BLOCK_BOTTOM_TOP** | Block with separate bottom, top, and side textures.          | TNT                    |
-| **PUMPKIN_CARVED**   | Directional block with a carved face.                        | Carved Pumpkin         |
-| **PUMPKIN_JACK**     | Pumpkin block with an illuminated face.                      | Jack o’Lantern         |
-| **BOOKSHELF**        | Bookshelf-style block with unique side texture.              | Bookshelf              |
-| **PLANT**            | Simple cross-model plant.                                    | Grass, Dandelion       |
-| **PLANT_TALL**       | Two-block-high plant.                                        | Sunflower, Tall Grass  |
-| **PLANT_POT**        | Pot for this plant.                                          | Potted Dendalion       |
-| **HEAD**             | Decorative head block.                                       | Player Head            |
-| **SKULL**            | Skull-style head with rotation.                              | Skeleton Skull         |
-| **CANDLE**           | Candle block with multiple candle states.                    | Candle                 |
-| **ITEM**             | Item-only model (no blockstate).                             | Stick, Iron Ingot      |
-| **RECIPE**           | Typical crafting table recipe.                               | Pickaxe, Bricks, Pot   |
-| **RECIPE_SHAPELESS** | Typical crafting table recipe without shape.                 | Dye, Button            |
+| Model Type           | Description                                                   | Minecraft Example       |
+|----------------------|---------------------------------------------------------------|-------------------------|
+| **BLOCK**            | Standard full cube block with the same texture on all sides.  | Stone, Dirt             |
+| **COLUMN**           | Block with different side and top/bottom textures.            | Oak Log, Quartz Pillar  |
+| **SLAB**             | Slab variant including bottom, top, and double slab models.   | Stone Slab              |
+| **STAIRS**           | Complete stair set (normal, inner, outer).                    | Oak Stairs              |
+| **WALL**             | Wall models with all connection variants.                     | Cobblestone Wall        |
+| **FENCE**            | Fence with post and side connections.                         | Oak Fence               |
+| **BUTTON**           | Button models for wall, floor, and ceiling placement.         | Stone Button            |
+| **PRESSURE_PLATE**   | Pressure plate models with pressed/unpressed states.          | Oak Pressure Plate      |
+| **ORIENTABLE**       | Block with orientation-based models.                          | Dropper, Dispenser      |
+| **BLOCK_BOTTOM_TOP** | Block with separate bottom, top, and side textures.           | TNT                     |
+| **PUMPKIN_CARVED**   | Directional block with a carved face.                         | Carved Pumpkin          |
+| **PUMPKIN_JACK**     | Pumpkin block with an illuminated face.                       | Jack o’Lantern          |
+| **BOOKSHELF**        | Bookshelf-style block with unique side texture.               | Bookshelf               |
+| **PLANT**            | Simple cross-model plant.                                     | Grass, Dandelion        |
+| **PLANT_TALL**       | Two-block-high plant.                                         | Sunflower, Tall Grass   |
+| **PLANT_POT**        | Pot for this plant.                                           | Potted Dendalion        |
+| **HEAD**             | Decorative head block.                                        | Player Head             |
+| **SKULL**            | Skull-style head with rotation.                               | Skeleton Skull          |
+| **CANDLE**           | Candle block with multiple candle states.                     | Candle                  |
+| **ITEM**             | Item-only model (no blockstate).                              | Stick, Iron Ingot       |
+| **RECIPE**           | Typical crafting table recipe.                                | Pickaxe, Bricks, Pot    |
+| **RECIPE_SHAPELESS** | Typical crafting table recipe without shape.                  | Dye, Button             |
+| **RECIPE_FURNACE**   | Furnace recipe                                                | Creacked Stone Bricks   |
+| **RECIPE_BLASTING**  | Furnace recipe and blast furnace                              | Iron Ingot              |
+| **RECIPE_SMOKING**   | Furnace recipe and smoker                                     | Cooked Porkchop         |
+| **RECIPE_CAMPFIRE**  | Furnace recipe, smoker recipe and campfire recipe             | Cooked Rabbit           |
 
 
 The `--type` option must match one of the values above.

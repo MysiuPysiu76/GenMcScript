@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "recipe_category",
   "key": {
     "#": {
-      "item": "namespace:something"
+      "item": "namespace:recipe_source"
     }
   },
   "pattern": [

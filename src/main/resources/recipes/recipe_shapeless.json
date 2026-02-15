@@ -1,12 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
+  "category": "recipe_category",
   "ingredients": [
     {
-      "item": "namespace:something"
+      "item": "namespace:recipe_source"
     }
   ],
   "result": {
-    "item": "namespace:material"
+    "item": "namespace:material",
+    "count": 1
   }
 }

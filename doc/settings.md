@@ -1,6 +1,6 @@
 # GenMcScript  Settings Module
 
-This document describes the **Settings** module for **GenMcScript**. It is a focused, professional guide explaining how to configure and manage persistent defaults used by the generator CLI. The `settings` subcommand is intended **only** for configuration (it does not generate assets).
+This document describes **only** the **Settings** module for **GenMcScript**. It is a focused, professional guide explaining how to configure and manage persistent defaults used by the generator CLI. The `settings` subcommand is intended **only** for configuration (it does not generate assets).
 
 ---
 

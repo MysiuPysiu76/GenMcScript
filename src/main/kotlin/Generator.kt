@@ -35,8 +35,13 @@ object Generator {
             ModelType.CANDLE -> gen.candle()
 
             ModelType.ITEM -> gen.item()
+
             ModelType.RECIPE -> gen.recipe()
             ModelType.RECIPE_SHAPELESS -> gen.recipeShapeless()
+            ModelType.RECIPE_FURNACE -> gen.recipeFurnace()
+            ModelType.RECIPE_BLASTING -> gen.recipeBlasting()
+            ModelType.RECIPE_CAMPFIRE -> gen.recipeCampfire()
+            ModelType.RECIPE_SMOKING -> gen.recipeSmoking()
         }
     }
 

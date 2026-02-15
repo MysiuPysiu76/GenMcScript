@@ -21,6 +21,8 @@ class ModelGenerator(val settings: ModelSettings) {
             "pattern_" to settings.pattern,
             "sns" to secondNamespace,
             "mt_" to if (secondNamespace.equals(settings.namespace)) settings.material + "_" else "",
+            "recipe_source" to settings.source,
+            "recipe_category" to if (!settings.category.isNullOrEmpty()) settings.category else "building",
             "head_type" to settings.type.toString().lowercase(getDefault())
         )
     }
@@ -223,6 +225,27 @@ class ModelGenerator(val settings: ModelSettings) {
 
     fun recipeShapeless() {
         generate("recipes", "recipe_shapeless")
+    }
+
+    fun recipeFurnace() {
+        generate("recipes", "recipe_furnace")
+    }
+
+    fun recipeBlasting() {
+        generate("recipes", "recipe_furnace")
+        generate("recipes", "${settings.material}_blasting", "recipe_blasting")
+    }
+
+    fun recipeSmoking() {
+        generate("recipes", "recipe_furnace")
+        generate("recipes", "${settings.material}_smoking", "recipe_smoking")
+    }
+
+    fun recipeCampfire() {
+        if (settings.category.isNullOrBlank()) settings.category = "food"
+        generate("recipes", "recipe_furnace")
+        generate("recipes", "${settings.material}_smoking", "recipe_smoking")
+        generate("recipes", "${settings.material}_campfire","recipe_campfire")
     }
 
     private fun generate(model: String, source: String, onType: Boolean = false) {

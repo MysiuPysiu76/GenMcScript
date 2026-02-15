@@ -12,8 +12,10 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
     private val pattern by option("-pt", "--pattern", help = "Enter pattern")
     private val path by option("-p", "--path", help = "Path to save generated files")
     private val autoplace by option("-a", "-ap", "--autoplace", help = "Set auto place")
-    private val s by option("-s", help = "Set s").flag(default = false)
+    private val s by option("-ss", help = "Optional boolean flag used for specific block variants (e.g. brick slab from bricks)").flag(default = false)
+    private val source by option("-s", "--source", help = "Set source for recipe")
     private val stonecutting by option("-sc", "-st", "--stonecutting", help = "Generate stonecutter recipe").flag(default = false)
+    private val category by option("-c", "--category", help = "Set category for recipe")
 
     override fun run() {
 
@@ -46,6 +48,8 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
                     settings.material = if (isMaterialEmpty) "" else material
                     settings.s = s
                     settings.stonecutting = stonecutting
+                    settings.source = if (source.isNullOrBlank()) "enter_item" else source.toString()
+                    settings.category = if (category.isNullOrBlank()) "" else category.toString()
 
                     if (!path.isNullOrBlank()) settings.path = path.toString()
 
