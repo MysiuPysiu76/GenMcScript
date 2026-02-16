@@ -33,6 +33,7 @@ object Generator {
             ModelType.SKULL -> gen.skull()
 
             ModelType.CANDLE -> gen.candle()
+            ModelType.CANDLE_CAKE -> gen.candleCake()
 
             ModelType.ITEM -> gen.item()
 

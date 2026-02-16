@@ -163,17 +163,17 @@ class ModelGenerator(val settings: ModelSettings) {
     }
 
     fun skull() {
-        generate("blockstates", "${settings.material}_skull", "head", false)
-        generate("blockstates", "${settings.material}_wall_skull", "wall_head", false)
-        generate("models/block", "${settings.material}_skull_0", "head_0", false)
-        generate("models/block", "${settings.material}_skull_1", "head_1", false)
-        generate("models/block", "${settings.material}_skull_2", "head_2", false)
-        generate("models/block", "${settings.material}_skull_3", "head_3", false)
-        generate("models/block", "${settings.material}_wall_skull", "wall_head", false)
-        generate("models/block", "${settings.material}_skull_inventory", "head_inventory", false)
-        generate("models/item", "${settings.material}_skull", "head", false)
-        generate("loot_tables", "${settings.material}_skull", "head", false)
-        generate("loot_tables", "${settings.material}_wall_skull", "wall_head", false)
+        generate("blockstates", "${settings.material}_skull", "head")
+        generate("blockstates", "${settings.material}_wall_skull", "wall_head")
+        generate("models/block", "${settings.material}_skull_0", "head_0")
+        generate("models/block", "${settings.material}_skull_1", "head_1")
+        generate("models/block", "${settings.material}_skull_2", "head_2")
+        generate("models/block", "${settings.material}_skull_3", "head_3")
+        generate("models/block", "${settings.material}_wall_skull", "wall_head")
+        generate("models/block", "${settings.material}_skull_inventory", "head_inventory")
+        generate("models/item", "${settings.material}_skull", "head")
+        generate("loot_tables", "${settings.material}_skull", "head")
+        generate("loot_tables", "${settings.material}_wall_skull", "wall_head")
     }
 
     fun candle() {
@@ -188,6 +188,13 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "${settings.pattern}_${settings.material}_candle_four_candles_lit", "candle_four_candles_lit")
         generate("models/item", "${settings.pattern}_${settings.material}_candle", "candle")
         generate("loot_tables", "${settings.pattern}_${settings.material}_candle", "candle")
+    }
+
+    fun candleCake() {
+        generate("blockstates", "${settings.pattern}_${settings.material}_candle_cake", "candle_cake")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_cake", "candle_cake")
+        generate("models/block", "${settings.pattern}_${settings.material}_candle_cake_lit", "candle_cake_lit")
+        generate("loot_tables", "${settings.pattern}_${settings.material}_candle_cake", "candle_cake")
     }
 
     fun plant() {
