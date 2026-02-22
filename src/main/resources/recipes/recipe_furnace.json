@@ -4,7 +4,7 @@
   "cookingtime": 200,
   "experience": 2.0,
   "ingredient": {
-    "item": "namespace:recipe_source"
+    "item": "sns:recipe_source"
   },
   "result": "namespace:material"
 }

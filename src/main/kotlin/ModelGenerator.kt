@@ -14,7 +14,7 @@ class ModelGenerator(val settings: ModelSettings) {
         var rootBlock = settings.material
         if (settings.s) rootBlock += "s"
 
-        val secondNamespace = if (rootBlock.isEmpty()) "minecraft" else settings.namespace
+        val secondNamespace = if (settings.mcnamespace) "minecraft" else settings.namespace
 
         binds = mapOf(
             "root_block" to rootBlock,

@@ -7,7 +7,7 @@
       "item": "minecraft:stick"
     },
     "W": {
-      "item": "namespace:material_planks"
+      "item": "sns:material_planks"
     }
   },
   "pattern": [

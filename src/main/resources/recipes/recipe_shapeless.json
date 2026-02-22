@@ -3,7 +3,7 @@
   "category": "recipe_category",
   "ingredients": [
     {
-      "item": "namespace:recipe_source"
+      "item": "sns:recipe_source"
     }
   ],
   "result": {

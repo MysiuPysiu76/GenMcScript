@@ -46,6 +46,7 @@ gms gen [options]
 | `-sc`, `-st`,  `--stonecutting` | Generate an additional stonecutter recipe                                            | flag  |
 | `-s`, `--source`,               | Set recipe source                                                                    | value |
 | `-c`, `--category`              | Set recipe category                                                                  | value |
+| `-mc`, `--mc-namespace`         | Set namespace for something what come from minecraft                                 | flag  |
 
 #### Option Types
 
@@ -55,7 +56,6 @@ Example:
 ```bash
 gms gen --type slab --material stone
 ```
-
 
 - **flag**
 A boolean switch that is enabled just by being present.

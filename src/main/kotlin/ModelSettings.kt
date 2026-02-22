@@ -13,5 +13,6 @@ class ModelSettings(val settings : Settings) {
     lateinit var category : String
     var s by Delegates.notNull<Boolean>()
     var stonecutting by Delegates.notNull<Boolean>()
+    var mcnamespace by Delegates.notNull<Boolean>()
 
 }
