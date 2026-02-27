@@ -7,11 +7,13 @@
     }
   },
   "pattern": [
-    "###"
+    " # ",
+    " # ",
+    " # "
   ],
   "result": {
     "count": 6,
-    "item": "namespace:material_slab"
+    "item": "namespace:material_vertical_slab"
   },
   "show_notification": true
 }

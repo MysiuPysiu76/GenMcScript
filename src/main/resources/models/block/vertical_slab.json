@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "namespace:block/vertical_slab",
   "textures": {
     "bottom": "sns:block/root_block",
     "side": "sns:block/root_block",

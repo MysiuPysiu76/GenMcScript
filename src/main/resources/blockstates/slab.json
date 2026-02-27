@@ -4,7 +4,7 @@
       "model": "namespace:block/material_slab"
     },
     "type=double": {
-      "model": "namespace:block/root_block"
+      "model": "sns:block/root_block"
     },
     "type=top": {
       "model": "namespace:block/material_slab_top"

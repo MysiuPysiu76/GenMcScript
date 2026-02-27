@@ -3,6 +3,7 @@ enum class ModelType {
     BLOCK,
     COLUMN,
     SLAB,
+    VERTICAL_SLAB,
     STAIRS,
     WALL,
     FENCE,

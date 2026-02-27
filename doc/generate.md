@@ -15,6 +15,11 @@ For convenience you can create a shell alias to run the JAR quickly. On Linux or
 alias gms="java -jar GenMcScript.jar"
 ```
 
+## Building jar
+```bash
+./gradlew fatJar
+```
+
 ## Overview
 
 The `gen` command is responsible for generating asset files based on provided options and saved settings.
@@ -78,6 +83,7 @@ The `type` parameter defines what kind of Minecraft model and related files will
 | **SLAB**             | Slab variant including bottom, top, and double slab models.  | Stone Slab             |
 | **STAIRS**           | Complete stair set (normal, inner, outer).                   | Oak Stairs             |
 | **WALL**             | Wall models with all connection variants.                    | Cobblestone Wall       |
+| **VERTICAL_SLAB**    | Vertical slab model                                          | No exists in Minecraft |
 | **FENCE**            | Fence with post and side connections.                        | Oak Fence              |
 | **BUTTON**           | Button models for wall, floor, and ceiling placement.        | Stone Button           |
 | **PRESSURE_PLATE**   | Pressure plate models with pressed/unpressed states.         | Oak Pressure Plate     |

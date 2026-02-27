@@ -65,6 +65,15 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("loot_tables","slab", true)
     }
 
+    fun vertical_slab() {
+        generate("blockstates","vertical_slab", true)
+        generate("models/block","vertical_slab", true)
+        generate("models/item","vertical_slab", true)
+        generate("recipes","vertical_slab", true)
+        if (settings.stonecutting) generate("recipes","vertical_slab_stonecutting", true)
+        generate("loot_tables","vertical_slab", true)
+    }
+
     fun stairs() {
         generate("blockstates", "stairs", true)
         generate("models/block", "stairs", true)
