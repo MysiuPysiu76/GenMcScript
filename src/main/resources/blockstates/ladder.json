@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "namespace:block/material_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "namespace:block/material_ladder"
+    },
+    "facing=south": {
+      "model": "namespace:block/material_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "namespace:block/material_ladder",
+      "y": 270
+    }
+  }
+}

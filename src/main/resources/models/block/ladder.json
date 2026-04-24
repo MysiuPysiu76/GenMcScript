@@ -1,0 +1,6 @@
+{
+    "parent": "namespace:block/ladder",
+    "textures": {
+        "texture": "namespace:block/material_ladder"
+    }
+}

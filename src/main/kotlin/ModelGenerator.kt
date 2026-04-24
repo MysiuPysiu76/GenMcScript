@@ -157,6 +157,14 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes", "bookshelf", true)
     }
 
+    fun ladder() {
+        generate("blockstates", "ladder", true)
+        generate("models/block", "ladder", true)
+        generate("models/item", "ladder", true)
+        generate("loot_tables", "ladder", true)
+        generate("recipes", "ladder", true)
+    }
+
     fun head() {
         generate("blockstates", "head", true)
         generate("blockstates", "wall_head", true)

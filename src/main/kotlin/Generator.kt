@@ -22,6 +22,7 @@ object Generator {
             ModelType.PRESSURE_PLATE -> gen.pressurePlate()
 
             ModelType.BOOKSHELF -> gen.bookshelf()
+            ModelType.LADDER -> gen.ladder()
 
             ModelType.PLANT -> gen.plant()
             ModelType.PLANT_TALL -> gen.plantTall()
