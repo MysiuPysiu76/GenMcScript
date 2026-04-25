@@ -34,6 +34,11 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
             }
         }
 
+        var mcns : Boolean = mcnamespace;
+        if (type?.contains("pumpkin")!! && material.isNullOrBlank()) {
+            mcns = true
+        }
+
         val typeString = type.toString().uppercase(getDefault())
 
         for (type in typeString.split('/')) {
@@ -51,7 +56,7 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
                     settings.stonecutting = stonecutting
                     settings.source = if (source.isNullOrBlank()) "enter_item" else source.toString()
                     settings.category = if (category.isNullOrBlank()) "" else category.toString()
-                    settings.mcnamespace = mcnamespace
+                    settings.mcnamespace = mcns
 
                     if (!path.isNullOrBlank()) settings.path = path.toString()
 

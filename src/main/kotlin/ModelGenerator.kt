@@ -65,7 +65,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("loot_tables","slab", true)
     }
 
-    fun vertical_slab() {
+    fun verticalSlab() {
         generate("blockstates","vertical_slab", true)
         generate("models/block","vertical_slab", true)
         generate("models/item","vertical_slab", true)
@@ -130,6 +130,8 @@ class ModelGenerator(val settings: ModelSettings) {
         val x = if (settings.material.isEmpty()) "" else "_"
         val name = "${settings.pattern}_carved_${settings.material}${x}pumpkin"
         settings.material = name
+
+        if (settings.material.isBlank()) settings.mcnamespace = true
 
         generate("blockstates", "orientable")
         generate("models/block", "pumpkin")

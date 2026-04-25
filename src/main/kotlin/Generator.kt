@@ -15,7 +15,7 @@ object Generator {
             ModelType.SLAB -> gen.slab()
             ModelType.STAIRS -> gen.stairs()
             ModelType.WALL -> gen.wall()
-            ModelType.VERTICAL_SLAB -> gen.vertical_slab()
+            ModelType.VERTICAL_SLAB -> gen.verticalSlab()
 
             ModelType.FENCE -> gen.fence()
             ModelType.BUTTON -> gen.button()
