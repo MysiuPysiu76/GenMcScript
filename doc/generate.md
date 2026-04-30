@@ -79,6 +79,7 @@ The `type` parameter defines what kind of Minecraft model and related files will
 | Model Type           | Description                                                  | Minecraft Example      |
 |----------------------|--------------------------------------------------------------|------------------------|
 | **BLOCK**            | Standard full cube block with the same texture on all sides. | Stone, Dirt            |
+| **BLOCK_SET**        | Models set of: block, slab, stairs, vertical_slab and wall   | Stone, Dirt            |
 | **COLUMN**           | Block with different side and top/bottom textures.           | Oak Log, Quartz Pillar |
 | **SLAB**             | Slab variant including bottom, top, and double slab models.  | Stone Slab             |
 | **STAIRS**           | Complete stair set (normal, inner, outer).                   | Oak Stairs             |

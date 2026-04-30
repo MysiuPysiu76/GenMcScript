@@ -21,6 +21,7 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
     override fun run() {
 
         val settings = ModelSettings(SettingsManager.read())
+        type!!.lowercase(getDefault())
 
         if (type.isNullOrBlank()) {
             echo("Type is required", err = true)
@@ -39,7 +40,12 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
             mcns = true
         }
 
-        val typeString = type.toString().uppercase(getDefault())
+        val typeString: String;
+        if (type.equals("block_set")) {
+            typeString = "block/slab/stairs/vertical_slab/wall"
+        } else {
+            typeString= type.toString().uppercase(getDefault())
+        }
 
         for (type in typeString.split('/')) {
             val isMaterialEmpty = material.isNullOrBlank()
