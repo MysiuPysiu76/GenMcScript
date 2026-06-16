@@ -1,3 +1,6 @@
+package gen
+
+import settings.Settings
 import kotlin.properties.Delegates
 
 class ModelSettings(val settings : Settings) {

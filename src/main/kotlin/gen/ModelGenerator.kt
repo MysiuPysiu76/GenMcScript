@@ -1,6 +1,10 @@
+package gen
 
 import java.io.File
-import java.util.Locale.getDefault
+import java.util.Locale
+import kotlin.collections.iterator
+import kotlin.text.isNullOrBlank
+import kotlin.text.isNullOrEmpty
 
 class ModelGenerator(val settings: ModelSettings) {
 
@@ -23,7 +27,7 @@ class ModelGenerator(val settings: ModelSettings) {
             "mt_" to if (secondNamespace.equals(settings.namespace)) settings.material + "_" else "",
             "recipe_source" to settings.source,
             "recipe_category" to if (!settings.category.isNullOrEmpty()) settings.category else "building",
-            "head_type" to settings.type.toString().lowercase(getDefault())
+            "head_type" to settings.type.toString().lowercase(Locale.getDefault())
         )
     }
 
@@ -255,6 +259,10 @@ class ModelGenerator(val settings: ModelSettings) {
 
     fun recipeFurnace() {
         generate("recipes", "recipe_furnace")
+    }
+
+    fun recipeStonecutter() {
+        generate("recipes", "recipe_stonecutter")
     }
 
     fun recipeBlasting() {

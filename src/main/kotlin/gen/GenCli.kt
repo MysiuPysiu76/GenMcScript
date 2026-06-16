@@ -1,8 +1,10 @@
+package gen
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
-import java.util.Locale.getDefault
+import settings.SettingsManager
+import java.util.Locale
 
 class GenCli : CliktCommand(name = "gen", help = "Generate files") {
 
@@ -21,7 +23,7 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
     override fun run() {
 
         val settings = ModelSettings(SettingsManager.read())
-        type!!.lowercase(getDefault())
+        type!!.lowercase(Locale.getDefault())
 
         if (type.isNullOrBlank()) {
             echo("Type is required", err = true)
@@ -42,9 +44,9 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
 
         val typeString: String;
         if (type.equals("block_set")) {
-            typeString = "block/slab/stairs/vertical_slab/wall"
+            typeString = "block/slab/stairs/vertical_slab/wall".uppercase()
         } else {
-            typeString= type.toString().uppercase(getDefault())
+            typeString= type.toString().uppercase()
         }
 
         for (type in typeString.split('/')) {

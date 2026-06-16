@@ -1,3 +1,4 @@
+package gen
 
 object Generator {
 
@@ -42,6 +43,7 @@ object Generator {
             ModelType.RECIPE -> gen.recipe()
             ModelType.RECIPE_SHAPELESS -> gen.recipeShapeless()
             ModelType.RECIPE_FURNACE -> gen.recipeFurnace()
+            ModelType.RECIPE_STONECUTTER -> gen.recipeStonecutter()
             ModelType.RECIPE_BLASTING -> gen.recipeBlasting()
             ModelType.RECIPE_CAMPFIRE -> gen.recipeCampfire()
             ModelType.RECIPE_SMOKING -> gen.recipeSmoking()

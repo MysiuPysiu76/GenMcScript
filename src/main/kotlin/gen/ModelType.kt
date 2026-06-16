@@ -1,3 +1,4 @@
+package gen
 
 enum class ModelType {
     BLOCK,
@@ -26,6 +27,7 @@ enum class ModelType {
     RECIPE,
     RECIPE_SHAPELESS,
     RECIPE_FURNACE,
+    RECIPE_STONECUTTER,
     RECIPE_SMOKING,
     RECIPE_BLASTING,
     RECIPE_CAMPFIRE

@@ -1,3 +1,4 @@
+package settings
 
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json

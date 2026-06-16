@@ -1,5 +1,6 @@
 
 import com.github.ajalt.clikt.core.FileNotFound
+import gen.ModelSettings
 import java.io.File
 
 object FilesUtils {
