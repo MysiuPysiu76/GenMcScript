@@ -285,10 +285,11 @@ class ModelGenerator(val settings: ModelSettings) {
     private fun generate(model: String, source: String, onType: Boolean = false) {
         generate(model, settings.material, source, onType)
     }
-
+    
     private fun generate(model: String, name: String, source: String, nameBasedOnType: Boolean = false) {
         val material = if (nameBasedOnType) "${settings.material}_${source}" else name
-        var content = FilesUtils.readFile("/${model}/${source}.json").replace("namespace", settings.namespace).replace("material", settings.material)
+        val sourceFile = if (model.equals("recipes")) "v${settings.version}/$source" else source
+        var content = FilesUtils.readFile("/${model}/${sourceFile}.json").replace("namespace", settings.namespace).replace("material", settings.material)
         for((k, v) in binds) content = content.replace(k, v)
         File(FilesUtils.getDir(model, settings.path, settings.namespace, settings.autoplace), "${material}.json").writeText(content)
     }

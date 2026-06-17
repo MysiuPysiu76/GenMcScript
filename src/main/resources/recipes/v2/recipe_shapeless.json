@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "recipe_category",
+  "ingredients": [
+    {
+      "item": "sns:recipe_source"
+    }
+  ],
+  "result": {
+    "id": "namespace:material",
+    "count": 1
+  }
+}

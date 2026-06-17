@@ -10,6 +10,7 @@ class SettingsCli : CliktCommand(name = "settings", help = "Settings") {
     private val path by option("-p", "--path", help = "Target directory where generated blockstate, model, recipe and loot_table JSON files will be written")
     private val autoplace by option("-a", "-ap", "--autoplace", help = "Set auto place")
     private val reset by option("-r", "--reset", help = "Reset settings").flag()
+    private val version by option("-v", "--version", help = "Specify minecraft version")
 
     override fun run() {
 
@@ -24,6 +25,10 @@ class SettingsCli : CliktCommand(name = "settings", help = "Settings") {
 
         if (path != null) {
             SettingsManager.save("path", path!!)
+        }
+
+        if (version != null) {
+            SettingsManager.save("version", version!!)
         }
 
         if (autoplace != null) {

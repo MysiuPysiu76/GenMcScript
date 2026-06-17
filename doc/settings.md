@@ -37,8 +37,9 @@ gms settings [option]
 ### Available Options
 
 | Option                     | Description                                                                                        |
-|----------------------------| -------------------------------------------------------------------------------------------------- |
+|----------------------------|----------------------------------------------------------------------------------------------------|
 | `-n`, `--namespace`        | Set the default mod namespace (e.g. `examplemod`)                                                  |
+| `-v`, `--version`          | Set the minecraft version used in project (e.g. `1.20.3`, `1.21.4`)                                |
 | `-p`, `--path`             | Set the project resources path where generated JSON files will be written (see requirements below) |
 | `-a`, `-ap`, `--autoplace` | Enable or disable automatic placement of generated files into `assets` / `data` directories        |
 | `-r`, `--reset`            | Reset all saved settings to defaults                                                               |

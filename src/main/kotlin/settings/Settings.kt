@@ -6,5 +6,6 @@ import kotlinx.serialization.Serializable
 data class Settings(
     val namespace: String,
     val path: String,
-    val autoplace : Boolean
+    val autoplace: Boolean,
+    val version: String
 )
