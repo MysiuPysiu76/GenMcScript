@@ -6,11 +6,12 @@ import java.io.File
 object FilesUtils {
 
     fun createDirs(s: ModelSettings) {
+        val isS = if (s.version <= 2 ) "s" else ""
         getDir("blockstates", s).mkdirs()
         getDir("models/block", s).mkdirs()
         getDir("models/item", s).mkdirs()
-        getDir("recipes", s).mkdirs()
-        getDir("loot_tables", s).mkdirs()
+        getDir("recipe$isS", s).mkdirs()
+        getDir("loot_table$isS", s).mkdirs()
     }
 
     fun getDir(name: String, path: String, namespace: String, autoplace: Boolean, version: Int): File {
