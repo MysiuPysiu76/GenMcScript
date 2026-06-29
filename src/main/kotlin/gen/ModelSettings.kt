@@ -23,7 +23,8 @@ class ModelSettings(settings : Settings) {
         return when (version) {
             "1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4" -> 1
             "1.20.5", "1.20.6" -> 2
-            else -> 2
+            "1.21", "1.21.1" -> 3
+            else -> 3
         }
     }
 }

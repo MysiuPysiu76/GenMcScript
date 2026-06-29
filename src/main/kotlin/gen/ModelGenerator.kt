@@ -291,7 +291,7 @@ class ModelGenerator(val settings: ModelSettings) {
         val sourceFile = if (model.equals("recipes")) "v${settings.version}/$source" else source
         var content = FilesUtils.readFile("/${model}/${sourceFile}.json").replace("namespace", settings.namespace).replace("material", settings.material)
         for((k, v) in binds) content = content.replace(k, v)
-        File(FilesUtils.getDir(model, settings.path, settings.namespace, settings.autoplace), "${material}.json").writeText(content)
+        File(FilesUtils.getDir(model, settings.path, settings.namespace, settings.autoplace, settings.version), "${material}.json").writeText(content)
     }
 
 }

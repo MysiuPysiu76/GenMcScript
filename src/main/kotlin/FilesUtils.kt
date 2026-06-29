@@ -13,25 +13,26 @@ object FilesUtils {
         getDir("loot_tables", s).mkdirs()
     }
 
-    fun getDir(name: String, path: String, namespace: String, autoplace: Boolean): File {
+    fun getDir(name: String, path: String, namespace: String, autoplace: Boolean, version: Int): File {
+        val isS = if (version <= 2 ) "s" else ""
         return if (autoplace) mapOf(
             "blockstates" to File(path, "assets/$namespace/blockstates"),
             "models/block" to File(path, "assets/$namespace/models/block"),
             "models/item" to File(path, "assets/$namespace/models/item"),
-            "recipes" to File(path, "data/$namespace/recipes"),
-            "loot_tables" to File(path, "data/$namespace/loot_tables/blocks"),
+            "recipes" to File(path, "data/$namespace/recipe$isS"),
+            "loot_tables" to File(path, "data/$namespace/loot_table$isS/blocks"),
         )[name]!!
         else mapOf(
             "blockstates" to File(path, "generated/blockstates"),
             "models/block" to File(path, "generated/models/block"),
             "models/item" to File(path, "generated/models/item"),
-            "recipes" to File(path, "generated/recipes"),
-            "loot_tables" to File(path, "generated/loot_tables/blocks"),
+            "recipes" to File(path, "generated/recipe$isS"),
+            "loot_tables" to File(path, "generated/loot_table$isS/blocks"),
         )[name]!!
     }
 
     private fun getDir(name: String, s: ModelSettings): File {
-        return getDir(name, s.path, s.namespace, s.autoplace)
+        return getDir(name, s.path, s.namespace, s.autoplace, s.version)
     }
 
     fun readFile(filename: String): String {
