@@ -16,19 +16,25 @@ object FilesUtils {
 
     fun getDir(name: String, path: String, namespace: String, autoplace: Boolean, version: Int): File {
         val isS = if (version <= 2 ) "s" else ""
+        val recipeDir = if (autoplace) "data/$namespace/recipe$isS" else "generated/recipe$isS"
+        val lootDir = if (autoplace) "data/$namespace/loot_table$isS/blocks" else "generated/loot_table$isS/blocks"
         return if (autoplace) mapOf(
             "blockstates" to File(path, "assets/$namespace/blockstates"),
             "models/block" to File(path, "assets/$namespace/models/block"),
             "models/item" to File(path, "assets/$namespace/models/item"),
-            "recipes" to File(path, "data/$namespace/recipe$isS"),
-            "loot_tables" to File(path, "data/$namespace/loot_table$isS/blocks"),
+            "recipe$isS" to File(path, recipeDir),
+            "recipes" to File(path, recipeDir),
+            "loot_table$isS" to File(path, lootDir),
+            "loot_tables" to File(path, lootDir),
         )[name]!!
         else mapOf(
             "blockstates" to File(path, "generated/blockstates"),
             "models/block" to File(path, "generated/models/block"),
             "models/item" to File(path, "generated/models/item"),
-            "recipes" to File(path, "generated/recipe$isS"),
-            "loot_tables" to File(path, "generated/loot_table$isS/blocks"),
+            "recipe$isS" to File(path, recipeDir),
+            "recipes" to File(path, recipeDir),
+            "loot_table$isS" to File(path, lootDir),
+            "loot_tables" to File(path, lootDir),
         )[name]!!
     }
 

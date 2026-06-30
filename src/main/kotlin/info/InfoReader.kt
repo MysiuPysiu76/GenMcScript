@@ -5,6 +5,8 @@ import java.io.File
 
 object InfoReader {
 
+    private val excludeDirs = setOf(".gradle", "build", ".git", ".idea")
+
     fun classesTopLevelCount(path: File): Int {
         if (!path.exists() || !path.isDirectory) return 0
         return path.walk().filter { it.isFile && it.extension.equals("java", ignoreCase = true) }.count()
@@ -26,6 +28,35 @@ object InfoReader {
         val dir = File(file.parent, "resources/data/$namespace/recipe")
         if (!dir.exists() || !dir.isDirectory) return 0
         return dir.walk().filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.count()
+    }
+
+    fun javaLines(file: File): Long = countLines(file, "java")
+
+    fun jsonLines(file: File): Long = countLines(file, "json")
+
+    private fun countLines(file: File, extension: String): Long {
+        if (!file.exists()) return 0
+
+        if (file.isFile) {
+            return if (file.extension.equals(extension, ignoreCase = true)) {
+                file.useLines { lines -> lines.count().toLong() }
+            } else {
+                0
+            }
+        }
+
+        return file.walkTopDown()
+            .filter { it.isFile && it.extension.equals(extension, ignoreCase = true) }
+            .sumOf { it.useLines { lines -> lines.count().toLong() } }
+    }
+
+    fun pretty(number: Long): String {
+        return when {
+            number >= 1_000_000_000 -> "%.1fB".format(number / 1_000_000_000.0)
+            number >= 1_000_000 -> "%.1fM".format(number / 1_000_000.0)
+            number >= 1_000 -> "%.1fK".format(number / 1_000.0)
+            else -> number.toString()
+        }.replace(".0", "")
     }
 
     fun getProjectPath(): File {

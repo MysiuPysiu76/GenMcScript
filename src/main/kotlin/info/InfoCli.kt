@@ -15,6 +15,9 @@ class InfoCli : CliktCommand(name = "info", help = "Read all information from yo
         println("General Info:")
         println(" Project Path: $path")
         println(" Top level Java Classes: ${InfoReader.classesTopLevelCount(path)}")
+        println(" Java Code Lines: ${InfoReader.pretty(InfoReader.javaLines(path))}")
+        println(" Json Code Lines: ${InfoReader.pretty(InfoReader.jsonLines(path))}")
+
         println("Minecraft Info:")
         println(" Blocks: ${InfoReader.blocks(resPath, SettingsManager.read().namespace)}")
         println(" Items: ${InfoReader.items(resPath, SettingsManager.read().namespace)}")
