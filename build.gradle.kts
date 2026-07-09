@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.mysiupysiu.genmcscript"
-version = ""
+version = "1.0.0"
 
 repositories {
     mavenCentral()

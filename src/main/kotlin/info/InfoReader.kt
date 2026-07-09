@@ -5,29 +5,31 @@ import java.io.File
 
 object InfoReader {
 
-    private val excludeDirs = setOf(".gradle", "build", ".git", ".idea")
+    private val excludeDirs = setOf(".gradle", "build", ".git", ".idea", ".cache")
+
+    private fun shouldEnter(dir: File) = dir.name !in excludeDirs
 
     fun classesTopLevelCount(path: File): Int {
         if (!path.exists() || !path.isDirectory) return 0
-        return path.walk().filter { it.isFile && it.extension.equals("java", ignoreCase = true) }.count()
+        return path.walk().onEnter(::shouldEnter).filter { it.isFile && it.extension.equals("java", ignoreCase = true) }.count()
     }
 
     fun blocks(file: File, namespace: String): Int {
         val dir = File(file.parent, "resources/assets/$namespace/blockstates")
         if (!dir.exists() || !dir.isDirectory) return 0
-        return dir.walk().filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.count()
+        return dir.walk().onEnter(::shouldEnter).filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.count()
     }
 
     fun items(file: File, namespace: String): Int {
         val dir = File(file.parent, "resources/assets/$namespace/models/item")
         if (!dir.exists() || !dir.isDirectory) return 0
-        return dir.walk().filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.count()
+        return dir.walk().onEnter(::shouldEnter).filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.count()
     }
 
     fun recipesCount(file: File, namespace: String): Int {
         val dir = File(file.parent, "resources/data/$namespace/recipe")
         if (!dir.exists() || !dir.isDirectory) return 0
-        return dir.walk().filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.count()
+        return dir.walk().onEnter(::shouldEnter).filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.count()
     }
 
     fun javaLines(file: File): Long = countLines(file, "java")
@@ -45,7 +47,7 @@ object InfoReader {
             }
         }
 
-        return file.walkTopDown()
+        return file.walkTopDown().onEnter(::shouldEnter)
             .filter { it.isFile && it.extension.equals(extension, ignoreCase = true) }
             .sumOf { it.useLines { lines -> lines.count().toLong() } }
     }

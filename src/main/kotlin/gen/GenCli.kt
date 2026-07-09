@@ -37,7 +37,7 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
             }
         }
 
-        var mcns : Boolean = mcnamespace;
+        var mcns : Boolean = mcnamespace
         if (type?.contains("pumpkin")!! && material.isNullOrBlank()) {
             mcns = true
         }
@@ -46,7 +46,7 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
         if (type.equals("block_set")) {
             typeString = "block/slab/stairs/vertical_slab/wall".uppercase()
         } else {
-            typeString= type.toString().uppercase()
+            typeString = type.toString().uppercase()
         }
 
         for (type in typeString.split('/')) {
