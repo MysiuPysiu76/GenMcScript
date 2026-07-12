@@ -27,6 +27,7 @@ kotlin {
 
 tasks.register<Jar>("fatJar") {
     archiveClassifier.set("")
+    archiveVersion.set("")
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from(sourceSets.main.get().output)
 

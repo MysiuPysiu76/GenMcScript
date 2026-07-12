@@ -11,6 +11,7 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.put
 import settings.SettingsManager
+import gen.ModelSettings
 import java.io.File
 
 class FileUpdater {
@@ -19,9 +20,11 @@ class FileUpdater {
         val settings = SettingsManager.read()
         val json = Json { ignoreUnknownKeys = true }
 
+        val dirName = if (ModelSettings(settings).version <= 2) "recipes" else "recipe"
+
         val directoriesToScan = listOf(
-            File(settings.path, "data/${settings.namespace}/recipes"),
-            File(settings.path, "data/minecraft/recipes")
+            File(settings.path, "data/${settings.namespace}/$dirName"),
+            File(settings.path, "data/minecraft/$dirName")
         )
 
         return directoriesToScan

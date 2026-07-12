@@ -5,7 +5,7 @@ import com.github.ajalt.clikt.parameters.options.option
 
 class UpdateCli : CliktCommand(name = "update", help = "Update game data and assets") {
 
-    private val version by option("-v", help = "Updater version")
+    private val version by option("-v", "--version", help = "Updater version")
 
     override fun run() {
 
