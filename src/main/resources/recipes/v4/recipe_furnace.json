@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "recipe_category",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredient": "sns:recipe_source",
+  "result": {
+    "id": "namespace:material"
+  }
+}

@@ -8,6 +8,7 @@ object Updater {
 
         when (version) {
             1 -> updater.v1()
+            2 -> updater.v2()
         }
     }
 

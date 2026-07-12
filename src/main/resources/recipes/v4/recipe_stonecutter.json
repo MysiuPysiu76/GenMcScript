@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "sns:block",
+  "result": {
+    "id": "namespace:material",
+    "count": 1
+  }
+}

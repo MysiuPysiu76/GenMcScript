@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "sns:material_planks",
+    "/": "minecraft:stick"
+  },
+  "pattern": [
+    "/ /",
+    "/#/",
+    "/ /"
+  ],
+  "result": {
+    "id": "namespace:material_ladder",
+    "count": 4
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "sns:root_block",
+  "result": {
+    "id": "namespace:material_vertical_slab",
+    "count": 2
+  }
+}

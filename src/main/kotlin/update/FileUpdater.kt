@@ -1,8 +1,10 @@
 package update
 
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.buildJsonArray
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.intOrNull
 import kotlinx.serialization.json.jsonObject
@@ -131,6 +133,196 @@ class FileUpdater {
         if (n != 0) divider()
         finish("minecraft:crafting_shaped", n)
         divider()
+    }
+
+    fun v2() {
+        println()
+        divider()
+
+        val json = json()
+        var n = 0
+
+        // Stonecutting: "ingredient": {"item": "X"} -> "ingredient": "X"
+        recipes("minecraft:stonecutting").forEach { file ->
+            try {
+                val originalObject = json.parseToJsonElement(file.readText()).jsonObject
+                val updatedObject = convertIngredientField(originalObject, "ingredient")
+
+                if (updatedObject != null) {
+                    file.writeText(json.encodeToString(JsonObject.serializer(), updatedObject))
+                    info(file.name)
+                    n++
+                }
+            } catch (e: Exception) {
+                error(file.name, e)
+            }
+        }
+
+        if (n != 0) divider()
+        finish("minecraft:stonecutting", n)
+        divider()
+        n = 0
+
+        // Smelting, Blasting, Smoking, Campfire: "ingredient": {"item": "X"} -> "ingredient": "X"
+        for (type in listOf("minecraft:smelting", "minecraft:blasting", "minecraft:smoking", "minecraft:campfire_cooking")) {
+            recipes(type).forEach { file ->
+                try {
+                    val originalObject = json.parseToJsonElement(file.readText()).jsonObject
+                    val updatedObject = convertIngredientField(originalObject, "ingredient")
+
+                    if (updatedObject != null) {
+                        file.writeText(json.encodeToString(JsonObject.serializer(), updatedObject))
+                        info(file.name)
+                        n++
+                    }
+                } catch (e: Exception) {
+                    error(file.name, e)
+                }
+            }
+
+            if (n != 0) divider()
+            finish(type, n)
+            divider()
+            n = 0
+        }
+
+        // Crafting Shaped: "key": {"#": {"item": "X"}} -> "key": {"#": "X"}
+        recipes("minecraft:crafting_shaped").forEach { file ->
+            try {
+                val originalObject = json.parseToJsonElement(file.readText()).jsonObject
+                val updatedObject = convertKeyIngredients(originalObject, "key")
+
+                if (updatedObject != null) {
+                    file.writeText(json.encodeToString(JsonObject.serializer(), updatedObject))
+                    info(file.name)
+                    n++
+                }
+            } catch (e: Exception) {
+                error(file.name, e)
+            }
+        }
+
+        if (n != 0) divider()
+        finish("minecraft:crafting_shaped", n)
+        divider()
+        n = 0
+
+        // Crafting Shapeless: "ingredients": [{"item": "X"}] -> "ingredients": ["X"]
+        recipes("minecraft:crafting_shapeless").forEach { file ->
+            try {
+                val originalObject = json.parseToJsonElement(file.readText()).jsonObject
+                val updatedObject = convertIngredientsList(originalObject, "ingredients")
+
+                if (updatedObject != null) {
+                    file.writeText(json.encodeToString(JsonObject.serializer(), updatedObject))
+                    info(file.name)
+                    n++
+                }
+            } catch (e: Exception) {
+                error(file.name, e)
+            }
+        }
+
+        if (n != 0) divider()
+        finish("minecraft:crafting_shapeless", n)
+        divider()
+    }
+
+    fun ingredientToString(ingredient: Any): Any {
+        return when (ingredient) {
+            is JsonObject -> {
+                val item = ingredient["item"]
+                val tag = ingredient["tag"]
+                if (tag is JsonPrimitive && tag.isString) {
+                    "#${tag.content}"
+                } else if (item is JsonPrimitive && item.isString) {
+                    item.content
+                } else {
+                    ingredient
+                }
+            }
+            else -> ingredient
+        }
+    }
+
+    fun convertIngredientField(root: JsonObject, fieldName: String): JsonObject? {
+        val oldValue = root[fieldName] ?: return null
+
+        if (oldValue is JsonObject) {
+            val newValue = ingredientToString(oldValue)
+
+            if (newValue is String) {
+                return buildJsonObject {
+                    root.forEach { (key, value) ->
+                        if (key == fieldName) {
+                            put(fieldName, newValue)
+                        } else {
+                            put(key, value)
+                        }
+                    }
+                }
+            }
+        }
+
+        return null
+    }
+
+    fun convertKeyIngredients(root: JsonObject, keyName: String): JsonObject? {
+        val keyObject = root[keyName] as? JsonObject ?: return null
+
+        var changed = false
+        val newKeyObject = buildJsonObject {
+            keyObject.forEach { (k, v) ->
+                val converted = ingredientToString(v)
+                if (converted is String) {
+                    put(k, converted)
+                    changed = true
+                } else {
+                    put(k, v)
+                }
+            }
+        }
+
+        if (!changed) return null
+
+        return buildJsonObject {
+            root.forEach { (key, value) ->
+                if (key == keyName) {
+                    put(keyName, newKeyObject)
+                } else {
+                    put(key, value)
+                }
+            }
+        }
+    }
+
+    fun convertIngredientsList(root: JsonObject, listName: String): JsonObject? {
+        val oldList = root[listName] as? JsonArray ?: return null
+
+        var changed = false
+        val newList = buildJsonArray {
+            oldList.forEach { element ->
+                val converted = ingredientToString(element)
+                if (converted is String) {
+                    add(JsonPrimitive(converted))
+                    changed = true
+                } else {
+                    add(element)
+                }
+            }
+        }
+
+        if (!changed) return null
+
+        return buildJsonObject {
+            root.forEach { (key, value) ->
+                if (key == listName) {
+                    put(listName, newList)
+                } else {
+                    put(key, value)
+                }
+            }
+        }
     }
 
     fun convertStringToObject(root: JsonObject, name: String, filed: String): JsonObject? {

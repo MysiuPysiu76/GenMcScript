@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "recipe_category",
+  "key": {
+    "#": "sns:recipe_source"
+  },
+  "pattern": [
+    "   ",
+    "   ",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "namespace:material"
+  }
+}
