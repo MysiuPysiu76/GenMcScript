@@ -51,6 +51,7 @@ gms gen [options]
 | `-sc`, `-st`,  `--stonecutting` | Generate an additional stonecutter recipe                                            | flag  |
 | `-s`, `--source`,               | Set recipe source                                                                    | value |
 | `-c`, `--category`              | Set recipe category                                                                  | value |
+| `-ct`, `--count`                | Set result count for recipe (default: 1)                                             | value |
 | `-mc`, `--mc-namespace`         | Set namespace for something what come from minecraft                                 | flag  |
 
 #### Option Types
@@ -107,6 +108,7 @@ The `type` parameter defines what kind of Minecraft model and related files will
 | **RECIPE_BLASTING**  | Furnace recipe and blast furnace                             | Iron Ingot             |
 | **RECIPE_SMOKING**   | Furnace recipe and smoker                                    | Cooked Porkchop        |
 | **RECIPE_CAMPFIRE**  | Furnace recipe, smoker recipe and campfire recipe            | Cooked Rabbit          |
+| **RECIPE_WOODCUTTING** | Woodcutting recipe (custom recipe type)                    | Oak Log → Oak Planks   |
 
 
 The `--type` option must match one of the values above.
@@ -180,6 +182,11 @@ gms gen --type stairs/wall/slab --material granite/diorite
 ### Generate with stonecutter recipe
 ```bash
 gms gen --type SLAB --material stone --stonecutting -s
+```
+
+### Generate woodcutting recipe
+```bash
+gms gen --type RECIPE_WOODCUTTING --material oak_planks -s oak_logs -pt 5 -mc
 ```
 
 ### Enable autoplace for one run

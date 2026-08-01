@@ -1,0 +1,8 @@
+{
+  "type": "namespace:woodcutting",
+  "ingredient": "#namespace:wood/_wood__logs",
+  "result": {
+    "id": "item_name",
+    "count": _count_
+  }
+}

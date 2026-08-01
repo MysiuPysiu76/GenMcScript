@@ -8,26 +8,20 @@ import kotlin.text.isNullOrEmpty
 
 class ModelGenerator(val settings: ModelSettings) {
 
-    lateinit var binds: Map<String, String>
-
-    init {
-        initBinds()
-    }
-
-    private fun initBinds() {
+    val binds: MutableMap<String, String> by lazy {
         var rootBlock = settings.material
         if (settings.s) rootBlock += "s"
 
         val secondNamespace = if (settings.mcnamespace) "minecraft" else settings.namespace
 
-        binds = mapOf(
+        mutableMapOf(
             "root_block" to rootBlock,
             "pattern_" to settings.pattern,
             "sns" to secondNamespace,
             "mt_" to if (secondNamespace.equals(settings.namespace)) settings.material + "_" else "",
             "recipe_source" to settings.source,
             "recipe_category" to if (!settings.category.isNullOrEmpty()) settings.category else "building",
-            "head_type" to settings.type.toString().lowercase(Locale.getDefault())
+            "head_type" to settings.type.toString().lowercase(Locale.getDefault()),
         )
     }
 
@@ -263,6 +257,115 @@ class ModelGenerator(val settings: ModelSettings) {
 
     fun recipeStonecutter() {
         generate("recipes", "recipe_stonecutter")
+    }
+
+    fun recipeWoodcutting() {
+        generate("recipes", "woodcutting/tag")
+    }
+
+    fun woodSet() {
+        val wood = settings.material
+        val sns = if (settings.mcnamespace) "minecraft" else settings.namespace
+
+        woodcutterRecipes(mapOf(
+            "sns:{}_planks" to 4,
+            "sns:{}_slab" to 8,
+            "sns:{}_stairs" to 4,
+            "namespace:{}_vertical_slab" to 8,
+
+            "sns:{}_fence" to 4,
+            "sns:{}_fence_gate" to 4,
+            "sns:{}_door" to 4,
+            "sns:{}_trapdoor" to 4,
+            "sns:{}_button" to 4,
+            "sns:{}_pressure_plate" to 4,
+            "sns:{}_sign" to 4,
+            "sns:{}_hanging_sign" to 4,
+
+            "namespace:hollow_stripped_{}_log" to 1,
+            "namespace:stripped_{}_wood_fence" to 2,
+            "namespace:{}_ladder" to 4,
+
+            "namespace:{}_mosaic" to 4,
+            "namespace:{}_mosaic_slab" to 8,
+            "namespace:{}_mosaic_stairs" to 4,
+            "namespace:{}_mosaic_vertical_slab" to 8,
+
+            "namespace:vertical_{}_planks" to 4,
+            "namespace:vertical_{}_plank_slab" to 8,
+            "namespace:vertical_{}_plank_stairs" to 4,
+            "namespace:vertical_{}_plank_vertical_slab" to 8,
+        ), "tag_logs", "logs")
+
+        woodcutterRecipes(mapOf(
+            "sns:stripped_{}_log" to 1,
+            "sns:stripped_{}_wood" to 1,
+            "namespace:hollow_{}_log" to 1,
+            "namespace:{}_wood_fence" to 2,
+        ), "tag_wood", "wood")
+
+        woodcutterRecipes(mapOf(
+            "sns:{}_slab" to 2,
+            "sns:{}_stairs" to 1,
+            "namespace:{}_vertical_slab" to 2,
+
+            "sns:{}_fence" to 1,
+            "sns:{}_fence_gate" to 1,
+            "sns:{}_door" to 1,
+            "sns:{}_trapdoor" to 1,
+            "sns:{}_button" to 1,
+            "sns:{}_pressure_plate" to 1,
+            "sns:{}_sign" to 1,
+
+            "namespace:{}_ladder" to 1,
+            "namespace:{}_mosaic" to 1,
+            "namespace:{}_mosaic_slab" to 2,
+            "namespace:{}_mosaic_stairs" to 1,
+            "namespace:{}_mosaic_vertical_slab" to 2,
+
+            "namespace:vertical_{}_plank_slab" to 2,
+            "namespace:vertical_{}_plank_stairs" to 1,
+            "namespace:vertical_{}_plank_vertical_slab" to 2,
+        ), "tag_planks", "planks")
+
+        woodcutterRecipes(mapOf(
+            "namespace:{}_mosaic_slab" to 2,
+            "namespace:{}_mosaic_stairs" to 1,
+            "namespace:{}_mosaic_vertical_slab" to 2,
+        ), "item_mosaic", "mosaic")
+
+        woodcutterRecipe("${wood}_wood_from_log", "${wood}_log", "${wood}_wood", 1, sns)
+        woodcutterRecipe("stripped_${wood}_wood_from_stripped_log", "stripped_${wood}_log", "stripped_${wood}_wood", 1, sns)
+        woodcutterRecipe("hollow_stripped_${wood}_log_from_hollow_log", "hollow_${wood}_log", "hollow_stripped_${wood}_log", 1, settings.namespace)
+        woodcutterRecipe("${wood}_planks_from_vertical_planks", "vertical_${wood}_planks", "${wood}_planks", 1, settings.namespace, sns)
+        woodcutterRecipe("vertical_${wood}_planks_from_planks", "${wood}_planks", "vertical_${wood}_planks", 1, sns, settings.namespace)
+    }
+
+    private fun woodcutterRecipes(items: Map<String, Int>, source: String, from: String) {
+        val wood = settings.material
+        val sns = if (settings.mcnamespace) "minecraft" else settings.namespace
+        binds["_wood_"] = wood
+
+        for ((k, v) in items) {
+            binds["_count_"] = v.toString()
+            val newName = k.replace("{}", wood).replace("namespace", settings.namespace).replace("sns", sns)
+            binds["item_name"] = newName
+            generate("recipes", "${newName.substringAfter(':')}_from_$from", "woodcutting/$source")
+        }
+    }
+
+    private fun woodcutterRecipe(fileName: String, from: String, to: String, count: Int, sns: String) {
+       woodcutterRecipe(fileName, from, to, count, sns, sns)
+    }
+
+    private fun woodcutterRecipe(fileName: String, from: String, to: String, count: Int, sns: String, sns2: String) {
+        binds["_count_"] = count.toString()
+        binds["_from_"] = from
+        binds["_from-ns_"] = sns
+        binds["_to_"] = to
+        binds["_to-ns_"] = sns2
+
+        generate("recipes", fileName, "recipe_woodcutter")
     }
 
     fun recipeBlasting() {

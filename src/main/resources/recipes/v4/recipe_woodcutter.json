@@ -1,0 +1,8 @@
+{
+  "type": "namespace:woodcutting",
+  "ingredient": "_from-ns_:_from_",
+  "result": {
+    "id": "_to-ns_:_to_",
+    "count": _count_
+  }
+}

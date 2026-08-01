@@ -15,6 +15,7 @@ class ModelSettings(settings : Settings) {
     lateinit var pattern : String
     lateinit var source : String
     lateinit var category : String
+    var count : Int = 1
     var s by Delegates.notNull<Boolean>()
     var stonecutting by Delegates.notNull<Boolean>()
     var mcnamespace by Delegates.notNull<Boolean>()

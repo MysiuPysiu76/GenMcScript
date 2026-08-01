@@ -18,6 +18,7 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
     private val source by option("-s", "--source", help = "Set source for recipe")
     private val stonecutting by option("-sc", "-st", "--stonecutting", help = "Generate stonecutter recipe").flag(default = false)
     private val category by option("-c", "--category", help = "Set category for recipe")
+    private val count by option("-ct", "--count", help = "Set result count for recipe")
     private val mcnamespace by option("-mc", "--mc-namespace", help = "Set namespace for something what come from minecraft").flag(default = false)
 
     override fun run() {
@@ -64,6 +65,7 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
                     settings.stonecutting = stonecutting
                     settings.source = if (source.isNullOrBlank()) "enter_item" else source.toString()
                     settings.category = if (category.isNullOrBlank()) "" else category.toString()
+                    settings.count = if (count.isNullOrBlank()) 1 else count.toString().toInt()
                     settings.mcnamespace = mcns
 
                     if (!path.isNullOrBlank()) settings.path = path.toString()
