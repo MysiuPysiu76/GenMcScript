@@ -18,10 +18,20 @@ class InfoCli : CliktCommand(name = "info", help = "Read all information from yo
         println(" Java Code Lines: ${InfoReader.pretty(InfoReader.javaLines(path))}")
         println(" Json Code Lines: ${InfoReader.pretty(InfoReader.jsonLines(path))}")
 
+        val namespace = SettingsManager.read().namespace
+
         println("Minecraft Info:")
-        println(" Blocks: ${InfoReader.blocks(resPath, SettingsManager.read().namespace)}")
-        println(" Items: ${InfoReader.items(resPath, SettingsManager.read().namespace)}")
-        println(" Recipes: ${InfoReader.recipesCount(resPath, SettingsManager.read().namespace)}")
+        println(" Blocks: ${InfoReader.blocks(resPath, namespace)}")
+        println(" Items: ${InfoReader.items(resPath, namespace)}")
+        println(" Recipes: ${InfoReader.recipesCount(resPath, namespace)}")
+        InfoReader.recipesByType(resPath, namespace).entries
+            .sortedWith(
+                compareBy<Map.Entry<String, Int>> { if (it.key.substringBefore(':') == "minecraft") 0 else 1 }
+                    .thenByDescending { it.value }
+            )
+            .forEach { (type, count) ->
+                println("   $type: $count")
+            }
 
         divider()
     }

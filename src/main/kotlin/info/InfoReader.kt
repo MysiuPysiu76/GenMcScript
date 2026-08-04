@@ -1,5 +1,9 @@
 package info
 
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.contentOrNull
+import kotlinx.serialization.json.jsonPrimitive
 import settings.SettingsManager
 import java.io.File
 
@@ -30,6 +34,27 @@ object InfoReader {
         val dir = File(file.parent, "resources/data/$namespace/recipe")
         if (!dir.exists() || !dir.isDirectory) return 0
         return dir.walk().onEnter(::shouldEnter).filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.count()
+    }
+
+    fun recipesByType(file: File, namespace: String): Map<String, Int> {
+        return setOf(namespace, "minecraft")
+            .flatMap { recipesOfType(File(file.parent, "resources/data/$it/recipe")) }
+            .groupingBy { it }
+            .eachCount()
+    }
+
+    private fun recipesOfType(dir: File): List<String> {
+        if (!dir.exists() || !dir.isDirectory) return emptyList()
+        return dir.walk().onEnter(::shouldEnter)
+            .filter { it.isFile && it.extension.equals("json", ignoreCase = true) }
+            .mapNotNull { recipeFile ->
+                val type = runCatching {
+                    val element = Json.parseToJsonElement(recipeFile.readText())
+                    (element as? JsonObject)?.get("type")?.jsonPrimitive?.contentOrNull
+                }.getOrNull()
+                type ?: "unknown"
+            }
+            .toList()
     }
 
     fun javaLines(file: File): Long = countLines(file, "java")
