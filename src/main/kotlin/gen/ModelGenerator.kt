@@ -157,6 +157,27 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes", "bookshelf", true)
     }
 
+    fun chiseledBookshelf() {
+        generate("blockstates", "chiseled_bookshelf", true)
+        generate("models/block", "chiseled_bookshelf", true)
+        generate("models/block", "chiseled_bookshelf_empty_slot_bottom_left", true)
+        generate("models/block", "chiseled_bookshelf_empty_slot_bottom_mid", true)
+        generate("models/block", "chiseled_bookshelf_empty_slot_bottom_right", true)
+        generate("models/block", "chiseled_bookshelf_empty_slot_top_left", true)
+        generate("models/block", "chiseled_bookshelf_empty_slot_top_mid", true)
+        generate("models/block", "chiseled_bookshelf_empty_slot_top_right", true)
+        generate("models/block", "chiseled_bookshelf_inventory", true)
+        generate("models/block", "chiseled_bookshelf_occupied_slot_bottom_left", true)
+        generate("models/block", "chiseled_bookshelf_occupied_slot_bottom_mid", true)
+        generate("models/block", "chiseled_bookshelf_occupied_slot_bottom_right", true)
+        generate("models/block", "chiseled_bookshelf_occupied_slot_top_left", true)
+        generate("models/block", "chiseled_bookshelf_occupied_slot_top_mid", true)
+        generate("models/block", "chiseled_bookshelf_occupied_slot_top_right", true)
+        generate("models/item", "chiseled_bookshelf", true)
+        generate("loot_tables", "chiseled_bookshelf", true)
+        generate("recipes", "chiseled_bookshelf", true)
+    }
+
     fun ladder() {
         generate("blockstates", "ladder", true)
         generate("models/block", "ladder", true)

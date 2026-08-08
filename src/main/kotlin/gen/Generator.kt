@@ -23,6 +23,7 @@ object Generator {
             ModelType.PRESSURE_PLATE -> gen.pressurePlate()
 
             ModelType.BOOKSHELF -> gen.bookshelf()
+            ModelType.CHISELED_BOOKSHELF -> gen.chiseledBookshelf()
             ModelType.LADDER -> gen.ladder()
 
             ModelType.PLANT -> gen.plant()

@@ -1,0 +1,7 @@
+{
+    "parent": "namespace:block/template_chiseled_bookshelf",
+    "textures": {
+        "side": "namespace:block/material_chiseled_bookshelf_side",
+        "top": "namespace:block/material_chiseled_bookshelf_top"
+    }
+}
