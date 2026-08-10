@@ -3,7 +3,7 @@ package update
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.option
 
-class UpdateCli : CliktCommand(name = "update", help = "Update game data and assets") {
+class UpdateCli : CliktCommand(name = "update", help = "Update game assets and data") {
 
     private val version by option("-v", "--version", help = "Updater version")
 

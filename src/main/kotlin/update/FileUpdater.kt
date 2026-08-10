@@ -230,6 +230,60 @@ class FileUpdater {
         finish("minecraft:crafting_shapeless", n)
         divider()
     }
+    fun v3() {
+        println()
+        divider()
+
+        val json = json()
+        val settings = SettingsManager.read()
+        var n = 0
+
+        val sourceDir = File(settings.path, "assets/${settings.namespace}/models/item")
+        val targetDir = File(settings.path, "assets/${settings.namespace}/items")
+
+        if (sourceDir.exists() && sourceDir.isDirectory) {
+            sourceDir.walkTopDown()
+                .filter { it.isFile && it.extension == "json" }
+                .forEach { file ->
+                    try {
+                        val originalObject = json.parseToJsonElement(file.readText()).jsonObject
+                        val parent = originalObject["parent"]?.jsonPrimitive?.content
+                        val isBlockModel = parent != null && parent.startsWith("${settings.namespace}:block/")
+
+                        val modelId = if (isBlockModel) parent else "${settings.namespace}:item/${file.nameWithoutExtension}"
+                        val updatedObject = if (parent != null) itemModelDefinition(modelId) else null
+
+                        if (updatedObject != null) {
+                            val targetFile = File(targetDir, file.name)
+                            targetFile.parentFile?.mkdirs()
+                            targetFile.writeText(json.encodeToString(JsonObject.serializer(), updatedObject))
+                            info(targetFile.name)
+                            n++
+
+                            if (isBlockModel) {
+                                file.delete()
+                                println(" [Info] Removed: ${file.name} from models/item")
+                            }
+                        }
+                    } catch (e: Exception) {
+                        error(file.name, e)
+                    }
+                }
+        }
+
+        if (n != 0) divider()
+        finish("items", n)
+        divider()
+    }
+
+    fun itemModelDefinition(modelId: String): JsonObject {
+        return buildJsonObject {
+            put("model", buildJsonObject {
+                put("type", "minecraft:model")
+                put("model", modelId)
+            })
+        }
+    }
 
     fun ingredientToString(ingredient: Any): Any {
         return when (ingredient) {
