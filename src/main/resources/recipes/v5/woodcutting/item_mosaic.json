@@ -1,0 +1,8 @@
+{
+  "type": "namespace:woodcutting",
+  "ingredient": "namespace:_wood__mosaic",
+  "result": {
+    "id": "item_name",
+    "count": _count_
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "recipe_category",
+  "cookingtime": 100,
+  "experience": 2.0,
+  "ingredient": "sns:recipe_source",
+  "result": {
+    "id": "namespace:material"
+  }
+}

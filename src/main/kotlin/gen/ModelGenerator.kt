@@ -28,28 +28,44 @@ class ModelGenerator(val settings: ModelSettings) {
     fun block() {
         generate("blockstates", "block")
         generate("models/block", "block")
-        generate("models/item", "block")
+        if (settings.version > 4) {
+            generate("items","block", true)
+        } else {
+            generate("models/item","block", true)
+        }
         generate("loot_tables", "block")
     }
 
     fun column() {
         generate("blockstates", "column")
         generate("models/block", "column")
-        generate("models/item", "block")
+        if (settings.version > 4) {
+            generate("items","block", true)
+        } else {
+            generate("models/item","block", true)
+        }
         generate("loot_tables", "block")
     }
 
     fun orientable() {
         generate("blockstates", "orientable")
         generate("models/block", "orientable")
-        generate("models/item", "block")
+        if (settings.version > 4) {
+            generate("items","block", true)
+        } else {
+            generate("models/item","block", true)
+        }
         generate("loot_tables", "block")
     }
 
     fun blockBottomTop() {
         generate("blockstates", "block")
         generate("models/block", "block_bottom_top")
-        generate("models/item", "block")
+        if (settings.version > 4) {
+            generate("items","block", true)
+        } else {
+            generate("models/item","block", true)
+        }
         generate("loot_tables", "block")
     }
 
@@ -57,7 +73,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("blockstates","slab", true)
         generate("models/block","slab", true)
         generate("models/block","slab_top", true)
-        generate("models/item","slab", true)
+        if (settings.version > 4) {
+            generate("items","slab", true)
+        } else {
+            generate("models/item","slab", true)
+        }
         generate("recipes","slab", true)
         if (settings.stonecutting) generate("recipes","slab_stonecutting", true)
         generate("loot_tables","slab", true)
@@ -66,7 +86,11 @@ class ModelGenerator(val settings: ModelSettings) {
     fun verticalSlab() {
         generate("blockstates","vertical_slab", true)
         generate("models/block","vertical_slab", true)
-        generate("models/item","vertical_slab", true)
+        if (settings.version > 4) {
+            generate("items","vertical_slab", true)
+        } else {
+            generate("models/item","vertical_slab", true)
+        }
         generate("recipes","vertical_slab", true)
         if (settings.stonecutting) generate("recipes","vertical_slab_stonecutting", true)
         generate("loot_tables","vertical_slab", true)
@@ -77,7 +101,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "stairs", true)
         generate("models/block", "stairs_inner", true)
         generate("models/block", "stairs_outer", true)
-        generate("models/item", "stairs", true)
+        if (settings.version > 4) {
+            generate("items","stairs", true)
+        } else {
+            generate("models/item","stairs", true)
+        }
         generate("recipes", "stairs", true)
         if (settings.stonecutting) generate("recipes", "stairs_stonecutting", true)
         generate("loot_tables", "stairs", true)
@@ -89,7 +117,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "wall_post", true)
         generate("models/block", "wall_side", true)
         generate("models/block", "wall_side_tall", true)
-        generate("models/item", "wall", true)
+        if (settings.version > 4) {
+            generate("items","wall", true)
+        } else {
+            generate("models/item","wall", true)
+        }
         generate("recipes", "wall", true)
         if (settings.stonecutting) generate("recipes", "wall_stonecutting", true)
         generate("loot_tables", "wall", true)
@@ -100,7 +132,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "fence_inventory", true)
         generate("models/block", "fence_post", true)
         generate("models/block", "fence_side", true)
-        generate("models/item", "fence", true)
+        if (settings.version > 4) {
+            generate("items","fence", true)
+        } else {
+            generate("models/item","fence", true)
+        }
         generate("loot_tables", "fence", true)
         generate("recipes", "fence", true)
     }
@@ -110,7 +146,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "button", true)
         generate("models/block", "button_inventory", true)
         generate("models/block", "button_pressed", true)
-        generate("models/item", "button", true)
+        if (settings.version > 4) {
+            generate("items","button", true)
+        } else {
+            generate("models/item","button", true)
+        }
         generate("loot_tables", "button", true)
         generate("recipes", "button", true)
     }
@@ -119,7 +159,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("blockstates", "pressure_plate", true)
         generate("models/block", "pressure_plate", true)
         generate("models/block", "pressure_plate_down", true)
-        generate("models/item", "pressure_plate", true)
+        if (settings.version > 4) {
+            generate("items","pressure_plate", true)
+        } else {
+            generate("models/item","pressure_plate", true)
+        }
         generate("loot_tables", "pressure_plate", true)
         generate("recipes", "pressure_plate", true)
     }
@@ -152,7 +196,11 @@ class ModelGenerator(val settings: ModelSettings) {
     fun bookshelf() {
         generate("blockstates", "bookshelf", true)
         generate("models/block", "bookshelf", true)
-        generate("models/item", "bookshelf", true)
+        if (settings.version > 4) {
+            generate("items","bookshelf", true)
+        } else {
+            generate("models/item","bookshelf", true)
+        }
         generate("loot_tables", "bookshelf", true)
         generate("recipes", "bookshelf", true)
     }
@@ -173,7 +221,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "chiseled_bookshelf_occupied_slot_top_left", true)
         generate("models/block", "chiseled_bookshelf_occupied_slot_top_mid", true)
         generate("models/block", "chiseled_bookshelf_occupied_slot_top_right", true)
-        generate("models/item", "chiseled_bookshelf", true)
+        if (settings.version > 4) {
+            generate("items","chiseled_bookshelf", true)
+        } else {
+            generate("models/item","chiseled_bookshelf", true)
+        }
         generate("loot_tables", "chiseled_bookshelf", true)
         generate("recipes", "chiseled_bookshelf", true)
     }
@@ -181,7 +233,11 @@ class ModelGenerator(val settings: ModelSettings) {
     fun ladder() {
         generate("blockstates", "ladder", true)
         generate("models/block", "ladder", true)
-        generate("models/item", "ladder", true)
+        if (settings.version > 4) {
+            generate("items","ladder", true)
+        } else {
+            generate("models/item","ladder", true)
+        }
         generate("loot_tables", "ladder", true)
         generate("recipes", "ladder", true)
     }
@@ -262,6 +318,9 @@ class ModelGenerator(val settings: ModelSettings) {
 
     fun item() {
         generate("models/item", "item")
+        if (settings.version > 4) {
+            generate("items","item", true)
+        }
     }
 
     fun recipe() {
