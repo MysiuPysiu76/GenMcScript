@@ -1,0 +1,8 @@
+{
+	"parent": "bignay:block/hollow_log",
+	"textures": {
+		"outer": "sns:block/material_log",
+		"top": "sns:block/material_log_top",
+		"inner": "sns:block/stpmaterial_log"
+	}
+}

@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "building",
+    "pattern": [
+        "###",
+        "# #",
+        "###"
+    ],
+    "key": {
+        "#": "sns:material_log"
+    },
+    "result": {
+        "id": "bignay:hollow_material_log",
+        "count": 8
+    }
+}

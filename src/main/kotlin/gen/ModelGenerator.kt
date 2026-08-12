@@ -13,6 +13,7 @@ class ModelGenerator(val settings: ModelSettings) {
         if (settings.s) rootBlock += "s"
 
         val secondNamespace = if (settings.mcnamespace) "minecraft" else settings.namespace
+        val stripped = if (settings.material.contains("stripped")) "" else "stripped"
 
         mutableMapOf(
             "root_block" to rootBlock,
@@ -22,6 +23,7 @@ class ModelGenerator(val settings: ModelSettings) {
             "recipe_source" to settings.source,
             "recipe_category" to if (!settings.category.isNullOrEmpty()) settings.category else "building",
             "head_type" to settings.type.toString().lowercase(Locale.getDefault()),
+            "stp" to stripped,
         )
     }
 
@@ -29,9 +31,9 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("blockstates", "block")
         generate("models/block", "block")
         if (settings.version > 4) {
-            generate("items","block", true)
+            generate("items","block")
         } else {
-            generate("models/item","block", true)
+            generate("models/item","block")
         }
         generate("loot_tables", "block")
     }
@@ -203,6 +205,18 @@ class ModelGenerator(val settings: ModelSettings) {
         }
         generate("loot_tables", "bookshelf", true)
         generate("recipes", "bookshelf", true)
+    }
+
+    fun hollow() {
+        generate("blockstates", "hollow_${settings.material}_log", "hollow")
+        generate("models/block", "hollow_${settings.material}_log", "hollow")
+        if (settings.version > 4) {
+            generate("items","hollow_${settings.material}_log", "hollow")
+        } else {
+            generate("models/item","hollow_${settings.material}_log", "hollow")
+        }
+        generate("loot_tables", "hollow_${settings.material}_log", "hollow")
+        generate("recipes", "hollow_${settings.material}_log", "hollow")
     }
 
     fun chiseledBookshelf() {

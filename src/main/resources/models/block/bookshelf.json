@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "namespace:block/material_planks",
+    "end": "sns:block/material_planks",
     "side": "namespace:block/material_bookshelf"
   }
 }

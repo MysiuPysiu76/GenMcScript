@@ -1,0 +1,6 @@
+{
+    "model": {
+        "type": "minecraft:model",
+        "model": "namespace:block/hollow_material_log"
+    }
+}
