@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "namespace:block/materialfence_post"
+        "model": "namespace:block/material_fence_post"
       }
     },
     {

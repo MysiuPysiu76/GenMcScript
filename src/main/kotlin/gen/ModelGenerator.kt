@@ -14,6 +14,7 @@ class ModelGenerator(val settings: ModelSettings) {
 
         val secondNamespace = if (settings.mcnamespace) "minecraft" else settings.namespace
         val stripped = if (settings.material.contains("stripped")) "" else "stripped"
+        val camp_type = if (settings.material.contains("soul")) "soul_fire_base_blocks" else "coals"
 
         mutableMapOf(
             "root_block" to rootBlock,
@@ -24,6 +25,7 @@ class ModelGenerator(val settings: ModelSettings) {
             "recipe_category" to if (!settings.category.isNullOrEmpty()) settings.category else "building",
             "head_type" to settings.type.toString().lowercase(Locale.getDefault()),
             "stp" to stripped,
+            "is_souls" to camp_type
         )
     }
 
@@ -207,6 +209,16 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes", "bookshelf", true)
     }
 
+    fun campfire() {
+        generate("blockstates", "campfire", true)
+        generate("items", "campfire", true)
+        generate("models/block", "campfire", true)
+        generate("models/block", "campfire_off", true)
+        generate("models/item", "campfire", true)
+        generate("loot_tables", "campfire", true)
+        generate("recipes", "campfire", true)
+    }
+
     fun hollow() {
         generate("blockstates", "hollow_${settings.material}_log", "hollow")
         generate("models/block", "hollow_${settings.material}_log", "hollow")
@@ -249,9 +261,8 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "ladder", true)
         if (settings.version > 4) {
             generate("items","ladder", true)
-        } else {
-            generate("models/item","ladder", true)
         }
+        generate("models/item","ladder", true)
         generate("loot_tables", "ladder", true)
         generate("recipes", "ladder", true)
     }

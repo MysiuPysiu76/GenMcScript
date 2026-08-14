@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "building",
+    "group": "campfires",
+    "pattern": [
+        " / ",
+        "/C/",
+        "OOO"
+    ],
+    "key": {
+        "/": "minecraft:stick",
+        "C": "#minecraft:is_souls",
+        "O": "sns:material_log"
+    },
+    "result": {
+        "id": "namespace:material_campfire",
+        "count": 1
+    }
+}

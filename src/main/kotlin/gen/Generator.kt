@@ -25,6 +25,7 @@ object Generator {
             ModelType.BOOKSHELF -> gen.bookshelf()
             ModelType.CHISELED_BOOKSHELF -> gen.chiseledBookshelf()
             ModelType.LADDER -> gen.ladder()
+            ModelType.CAMPFIRE -> gen.campfire()
             ModelType.HOLLOW -> gen.hollow()
 
             ModelType.PLANT -> gen.plant()

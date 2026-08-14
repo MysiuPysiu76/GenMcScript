@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "namespace:block/material_ladder"
+    "model": "namespace:item/material_ladder"
   }
 }

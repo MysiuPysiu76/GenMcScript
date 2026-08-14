@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "namespace:block/material_stairs_inventory"
+    "model": "namespace:block/material_fence_inventory"
   }
 }
