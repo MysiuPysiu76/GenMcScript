@@ -23,6 +23,7 @@ class InfoCli : CliktCommand(name = "info", help = "Read all information from yo
         println("Minecraft Info:")
         println(" Blocks: ${InfoReader.blocks(resPath, namespace)}")
         println(" Items: ${InfoReader.items(resPath, namespace)}")
+        println(" Textures: ${InfoReader.textures(resPath, namespace)}")
         println(" Recipes: ${InfoReader.recipesCount(resPath, namespace)}")
         InfoReader.recipesByType(resPath, namespace).entries
             .sortedWith(

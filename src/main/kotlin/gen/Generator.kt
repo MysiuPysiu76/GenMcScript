@@ -53,6 +53,7 @@ object Generator {
             ModelType.RECIPE_SMOKING -> gen.recipeSmoking()
 
             ModelType.WOOD_SET -> gen.woodSet()
+            ModelType.FIRE -> gen.fire()
         }
     }
 

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "namespace:block/material_chiseled_bookshelf"
+    "model": "namespace:block/material_chiseled_bookshelf_inventory"
   }
 }

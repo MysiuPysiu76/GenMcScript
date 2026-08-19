@@ -446,6 +446,17 @@ class ModelGenerator(val settings: ModelSettings) {
         woodcutterRecipe("vertical_${wood}_planks_from_planks", "${wood}_planks", "vertical_${wood}_planks", 1, sns, settings.namespace)
     }
 
+    fun fire() {
+        generate("blockstates", "fire", true)
+        generate("models/block", "fire_floor0", true)
+        generate("models/block", "fire_floor1", true)
+        generate("models/block", "fire_side0", true)
+        generate("models/block", "fire_side1", true)
+        generate("models/block", "fire_side_alt0", true)
+        generate("models/block", "fire_side_alt1", true)
+
+    }
+
     private fun woodcutterRecipes(items: Map<String, Int>, source: String, from: String) {
         val wood = settings.material
         val sns = if (settings.mcnamespace) "minecraft" else settings.namespace

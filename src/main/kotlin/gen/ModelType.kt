@@ -35,5 +35,6 @@ enum class ModelType {
     WOOD_SET,
     RECIPE_SMOKING,
     RECIPE_BLASTING,
-    RECIPE_CAMPFIRE
+    RECIPE_CAMPFIRE,
+    FIRE
 }

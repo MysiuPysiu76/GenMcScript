@@ -30,6 +30,12 @@ object InfoReader {
         return dir.walk().onEnter(::shouldEnter).filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.count()
     }
 
+    fun textures(file: File, namespace: String): Int {
+        val dir = File(file.parent, "resources/assets/$namespace/textures")
+        if (!dir.exists() || !dir.isDirectory) return 0
+        return dir.walk().onEnter(::shouldEnter).filter { it.isFile && it.extension.equals("png", ignoreCase = true) }.count()
+    }
+
     fun recipesCount(file: File, namespace: String): Int {
         val dir = File(file.parent, "resources/data/$namespace/recipe")
         if (!dir.exists() || !dir.isDirectory) return 0
