@@ -22,6 +22,7 @@ enum class ModelType {
     PLANT,
     PLANT_TALL,
     PLANT_POT,
+    PLANT_BED_POT,
     HEAD,
     SKULL,
     CANDLE,

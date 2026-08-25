@@ -1,0 +1,7 @@
+{
+  "parent": "namespace:block/flower_bed_pot",
+  "textures": {
+    "plant": "namespace:block/material_pot"
+  },
+  "render_type": "cutout"
+}

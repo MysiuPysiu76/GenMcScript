@@ -341,6 +341,13 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("loot_tables", material, "potted_plant")
     }
 
+    fun plantBedPot() {
+        val material = "potted_${settings.material}"
+        generate("blockstates", material, "potted_plant")
+        generate("models/block", material, "potted_plant_bed")
+        generate("loot_tables", material, "potted_plant")
+    }
+
     fun item() {
         generate("models/item", "item")
         if (settings.version > 4) {
