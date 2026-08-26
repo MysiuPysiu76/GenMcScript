@@ -19,6 +19,8 @@ class ModelSettings(settings : Settings) {
     var s by Delegates.notNull<Boolean>()
     var stonecutting by Delegates.notNull<Boolean>()
     var mcnamespace by Delegates.notNull<Boolean>()
+    var isWood by Delegates.notNull<Boolean>()
+    var isStone by Delegates.notNull<Boolean>()
 
     fun version(version : String): Int {
         return when (version) {

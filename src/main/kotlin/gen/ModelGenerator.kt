@@ -1,5 +1,7 @@
 package gen
 
+import utils.FilesUtils
+import utils.Tags
 import java.io.File
 import java.util.Locale
 import kotlin.collections.iterator
@@ -85,6 +87,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes","slab", true)
         if (settings.stonecutting) generate("recipes","slab_stonecutting", true)
         generate("loot_tables","slab", true)
+        if (settings.isWood) {
+            Tags.append("minecraft:block/wooden_slabs", "${settings.material}_slabs")
+        } else {
+            Tags.append("minecraft:block/slabs", "${settings.material}_slabs")
+        }
     }
 
     fun verticalSlab() {
@@ -98,6 +105,8 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes","vertical_slab", true)
         if (settings.stonecutting) generate("recipes","vertical_slab_stonecutting", true)
         generate("loot_tables","vertical_slab", true)
+        if (settings.isWood) Tags.append("block/wooden_vertical_slabs", "${settings.material}_vertical_slab")
+        if (settings.isStone) Tags.append("block/stone_vertical_slabs", "${settings.material}_vertical_slab")
     }
 
     fun stairs() {
@@ -113,6 +122,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes", "stairs", true)
         if (settings.stonecutting) generate("recipes", "stairs_stonecutting", true)
         generate("loot_tables", "stairs", true)
+        if (settings.isWood) {
+            Tags.append("minecraft:block/wooden_stairs", "${settings.material}_stairs")
+        } else {
+            Tags.append("minecraft:block/stairs", "${settings.material}_stairs")
+        }
     }
 
     fun wall() {
@@ -129,6 +143,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes", "wall", true)
         if (settings.stonecutting) generate("recipes", "wall_stonecutting", true)
         generate("loot_tables", "wall", true)
+        Tags.append("block/walls", "${settings.material}_wall")
     }
 
     fun fence() {
@@ -143,6 +158,7 @@ class ModelGenerator(val settings: ModelSettings) {
         }
         generate("loot_tables", "fence", true)
         generate("recipes", "fence", true)
+        Tags.append("minecraft:block/wooden_fences", "${settings.material}_fence")
     }
 
     fun button() {
@@ -195,6 +211,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/item", "block")
         generate("loot_tables", "block")
         generate("recipes", "jack_o_lantern")
+        Tags.append("block/jack_o_lanterns", "${settings.material}_jack_o_lantern")
     }
 
     fun bookshelf() {
@@ -207,6 +224,7 @@ class ModelGenerator(val settings: ModelSettings) {
         }
         generate("loot_tables", "bookshelf", true)
         generate("recipes", "bookshelf", true)
+        Tags.append("block/bookshelves", "${settings.material}_bookshelf")
     }
 
     fun campfire() {
@@ -217,6 +235,13 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/item", "campfire", true)
         generate("loot_tables", "campfire", true)
         generate("recipes", "campfire", true)
+        if (settings.material.contains("soul")) {
+            Tags.append("block/soul_campfires", "${settings.material}_campfire")
+            Tags.append("item/soul_campfires", "${settings.material}_campfire")
+        } else {
+            Tags.append("block/normal_campfires", "${settings.material}_campfire")
+            Tags.append("item/campfires", "${settings.material}_campfire")
+        }
     }
 
     fun hollow() {
@@ -229,6 +254,7 @@ class ModelGenerator(val settings: ModelSettings) {
         }
         generate("loot_tables", "hollow_${settings.material}_log", "hollow")
         generate("recipes", "hollow_${settings.material}_log", "hollow")
+        Tags.append("block/hollow_logs", "hollow_${settings.material}_log")
     }
 
     fun chiseledBookshelf() {
@@ -254,6 +280,7 @@ class ModelGenerator(val settings: ModelSettings) {
         }
         generate("loot_tables", "chiseled_bookshelf", true)
         generate("recipes", "chiseled_bookshelf", true)
+        Tags.append("block/chiseled_bookshelves", "${settings.material}_chiseled_bookshelf")
     }
 
     fun ladder() {
@@ -265,6 +292,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/item","ladder", true)
         generate("loot_tables", "ladder", true)
         generate("recipes", "ladder", true)
+        Tags.append("block/wooden_ladders", "${settings.material}_ladder")
     }
 
     fun head() {
@@ -307,6 +335,13 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "${settings.pattern}_${settings.material}_candle_four_candles_lit", "candle_four_candles_lit")
         generate("models/item", "${settings.pattern}_${settings.material}_candle", "candle")
         generate("loot_tables", "${settings.pattern}_${settings.material}_candle", "candle")
+        if (settings.material.contains("soul")) {
+            Tags.append("block/soul_candles", "soul_${settings.material}_candle")
+            Tags.append("item/soul_candles", "soul_${settings.material}_candle")
+        } else {
+            Tags.append("minecraft:block/candles", "${settings.material}_candle")
+            Tags.append("minecraft:item/candles", "${settings.material}_candle")
+        }
     }
 
     fun candleCake() {
@@ -314,6 +349,11 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "${settings.pattern}_${settings.material}_candle_cake", "candle_cake")
         generate("models/block", "${settings.pattern}_${settings.material}_candle_cake_lit", "candle_cake_lit")
         generate("loot_tables", "${settings.pattern}_${settings.material}_candle_cake", "candle_cake")
+        if (settings.material.contains("soul")) {
+            Tags.append("block/soul_candle_cakes", "soul_${settings.material}_candle_cake")
+        } else {
+            Tags.append("minecraft:block/candle_cakes", "${settings.material}_candle_cake")
+        }
     }
 
     fun plant() {
@@ -332,6 +372,7 @@ class ModelGenerator(val settings: ModelSettings) {
         settings.material = "tall_${material}_top"
         generate("models/block", "tall_${material}_top", "plant")
         generate("models/item", "tall_${material}", "item_block")
+        Tags.append("minecraft:block/tall_plants", "tall_${material}")
     }
 
     fun plantPot() {
@@ -339,6 +380,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("blockstates", material, "potted_plant")
         generate("models/block", material, "potted_plant")
         generate("loot_tables", material, "potted_plant")
+        Tags.append("minecraft:block/flower_pots", material)
     }
 
     fun plantBedPot() {
@@ -346,6 +388,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("blockstates", material, "potted_plant")
         generate("models/block", material, "potted_plant_bed")
         generate("loot_tables", material, "potted_plant")
+        Tags.append("minecraft:block/flower_pots", material)
     }
 
     fun item() {
@@ -461,7 +504,6 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("models/block", "fire_side1", true)
         generate("models/block", "fire_side_alt0", true)
         generate("models/block", "fire_side_alt1", true)
-
     }
 
     private fun woodcutterRecipes(items: Map<String, Int>, source: String, from: String) {

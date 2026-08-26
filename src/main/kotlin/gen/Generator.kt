@@ -1,9 +1,13 @@
 package gen
 
+import utils.FilesUtils
+import utils.Tags
+
 object Generator {
 
     fun generate(settings: ModelSettings) {
         FilesUtils.createDirs(settings)
+        Tags.init(settings.path, settings.namespace)
 
         val gen = ModelGenerator(settings)
 

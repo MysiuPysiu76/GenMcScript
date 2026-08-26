@@ -1,3 +1,4 @@
+package utils
 
 import com.github.ajalt.clikt.core.FileNotFound
 import gen.ModelSettings

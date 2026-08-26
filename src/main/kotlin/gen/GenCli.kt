@@ -20,6 +20,8 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
     private val category by option("-c", "--category", help = "Set category for recipe")
     private val count by option("-ct", "--count", help = "Set result count for recipe")
     private val mcnamespace by option("-mc", "--mc-namespace", help = "Set namespace for something what come from minecraft").flag(default = false)
+    private val isStone by option("-stone", help = "Set material type to stone").flag(default = false)
+    private val isWood by option("-wood", help = "Set material type to wood").flag(default = false)
 
     override fun run() {
 
@@ -67,6 +69,8 @@ class GenCli : CliktCommand(name = "gen", help = "Generate files") {
                     settings.category = if (category.isNullOrBlank()) "" else category.toString()
                     settings.count = if (count.isNullOrBlank()) 1 else count.toString().toInt()
                     settings.mcnamespace = mcns
+                    settings.isStone = isStone
+                    settings.isWood = isWood
 
                     if (!path.isNullOrBlank()) settings.path = path.toString()
 
