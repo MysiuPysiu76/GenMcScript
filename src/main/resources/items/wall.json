@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "namespace:block/material_wall"
+    "model": "namespace:block/material_wall_inventory"
   }
 }

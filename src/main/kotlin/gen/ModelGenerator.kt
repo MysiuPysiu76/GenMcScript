@@ -88,9 +88,9 @@ class ModelGenerator(val settings: ModelSettings) {
         if (settings.stonecutting) generate("recipes","slab_stonecutting", true)
         generate("loot_tables","slab", true)
         if (settings.isWood) {
-            Tags.append("minecraft:block/wooden_slabs", "${settings.material}_slabs")
+            Tags.append("minecraft:block/wooden_slabs", "${settings.material}_slab")
         } else {
-            Tags.append("minecraft:block/slabs", "${settings.material}_slabs")
+            Tags.append("minecraft:block/slabs", "${settings.material}_slab")
         }
     }
 
@@ -143,7 +143,7 @@ class ModelGenerator(val settings: ModelSettings) {
         generate("recipes", "wall", true)
         if (settings.stonecutting) generate("recipes", "wall_stonecutting", true)
         generate("loot_tables", "wall", true)
-        Tags.append("block/walls", "${settings.material}_wall")
+        Tags.append("minecraft:block/walls", "${settings.material}_wall")
     }
 
     fun fence() {
@@ -358,9 +358,11 @@ class ModelGenerator(val settings: ModelSettings) {
 
     fun plant() {
         generate("blockstates", "block")
+        generate("items", "plant")
         generate("models/block", "plant")
         generate("models/item", "item_block")
         generate("loot_tables", "block")
+        if (settings.material.contains("cactus")) Tags.append("block/cactus_flowers", settings.material)
     }
 
     fun plantTall() {
@@ -394,7 +396,7 @@ class ModelGenerator(val settings: ModelSettings) {
     fun item() {
         generate("models/item", "item")
         if (settings.version > 4) {
-            generate("items","item", true)
+            generate("items","item")
         }
     }
 
