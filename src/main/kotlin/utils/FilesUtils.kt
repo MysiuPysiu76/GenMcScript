@@ -1,7 +1,7 @@
 package utils
 
 import com.github.ajalt.clikt.core.FileNotFound
-import gen.ModelSettings
+import models.ModelSettings
 import java.io.File
 
 object FilesUtils {

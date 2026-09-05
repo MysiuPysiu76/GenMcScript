@@ -1,5 +1,8 @@
 package gen
 
+import models.ModelGenerator
+import models.ModelSettings
+import models.ModelType
 import utils.FilesUtils
 import utils.Tags
 

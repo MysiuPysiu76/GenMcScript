@@ -1,4 +1,4 @@
-package gen
+package models
 
 enum class ModelType {
     BLOCK,

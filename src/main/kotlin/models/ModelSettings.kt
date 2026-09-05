@@ -1,4 +1,4 @@
-package gen
+package models
 
 import settings.Settings
 import kotlin.properties.Delegates

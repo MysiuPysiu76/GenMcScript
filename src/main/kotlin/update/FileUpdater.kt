@@ -11,7 +11,7 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.put
 import settings.SettingsManager
-import gen.ModelSettings
+import models.ModelSettings
 import java.io.File
 
 class FileUpdater {

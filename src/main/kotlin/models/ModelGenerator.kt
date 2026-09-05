@@ -1,4 +1,4 @@
-package gen
+package models
 
 import utils.FilesUtils
 import utils.Tags
